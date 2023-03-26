@@ -1,8 +1,9 @@
 import React from 'react'
+import css from '../css/signup.module.css'
 
 const SignUp = () => {
   return (
-    <div>SignUp</div>
+    <div className={`${css.wrapper}`}>SignUp</div>
   )
 }
 

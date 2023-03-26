@@ -1,8 +1,13 @@
 import React from 'react'
+import css from '../css/login.module.css'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className={`${css.wrapper}`}>
+      <div className={`${css.form_wrapper}`}>
+        
+      </div>
+    </div>
   )
 }
 
