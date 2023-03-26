@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import css from "../css/signup.module.css";
+import React, { useState } from "react";
+import css from "../css/form.module.css";
 import TextField from "@mui/material/TextField";
 import {
   FormControl,
@@ -12,11 +12,17 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/system";
 import GoogleButton from 'react-google-button'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { Alert } from 'react-bootstrap';
+import {useUserAuthContext} from '../context/UserAuthContet'
+
 const Signup = () => {
+
+  const {signUp, emailVerification, setTimeActive} = useUserAuthContext()
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cPass, setCPass] = useState("");
+  const [error, setError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false); //for the icon in pass field
   const [showCPassword, setShowCPassword] = useState(false); //for the icon in pass field
@@ -31,18 +37,48 @@ const Signup = () => {
     event.preventDefault();
   };
 
-  const signupSubmit = (e) => {
+  //To check both pass are same
+  const validatePassword = () => {
+    let isValid = true
+    if (pass !== '' && cPass !== ''){
+      if (pass !== cPass) {
+        isValid = false
+        setError('Passwords does not match')
+      }
+    }
+    return isValid
+  }
+
+  const navigate = useNavigate()
+
+  const signupSubmit = async(e) => {
     e.preventDefault();
-    console.log("The user Email is:", email, "and Pass is:",pass,"confoirm pass:,",cPass);
+    setError('')
+    if(validatePassword()) {
+      // Create a new user with email and password using firebase
+        signUp(email, pass)
+        .then(() => {
+          emailVerification()
+          .then(() => {
+            setTimeActive(true)
+            navigate("/verification");
+          }).catch((err) => setError(err.message))
+        })
+    }
+    setEmail('')
+    setPass('')
+    setCPass('')
   };
   return (
     <div className={`${css.wrapper}`}>
       <Box className={`${css.form_wrapper}`}>
+      {error && <Alert variant="danger">{error}</Alert>}
+
         <form onSubmit={signupSubmit} className={`${css.form}`} >
           <TextField
             id="outlined-basic"
             className="mb-4"
-            type="text"
+            type="email"
             required
             label="Email Address"
             variant="outlined"
@@ -52,12 +88,12 @@ const Signup = () => {
             className="mb-4"
            variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
-              Password
+              Password *
             </InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
-              label="Password"
+              label="Password *"
               required
               onChange={(e) => setPass(e.target.value)}
               endAdornment={
@@ -78,12 +114,12 @@ const Signup = () => {
             className="mb-4"
            variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
-              Confirm Password
+              Confirm Password *
             </InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               type={showCPassword ? "text" : "password"}
-              label="Confirm Password"
+              label="Confirm Password *"
               required
               onChange={(e) => setCPass(e.target.value)}
               endAdornment={
@@ -102,8 +138,8 @@ const Signup = () => {
           </FormControl>
           <button className="btn btn-primary">Signup</button>
           <hr />
-          <div className="mb-3">
-            <GoogleButton style={{width: '100%'}} type = "dark"/>
+          <div className={`${css.google_btn} mb-3`}>
+            <GoogleButton label="SignUp with Google" style={{width: '100%'}} type = "dark"/>
           </div>
           <div className="text-center" >
             <h6 className="fw-500 fs-6">Already have an account? <br /> <Link to='/login'>Login</Link> here</h6>

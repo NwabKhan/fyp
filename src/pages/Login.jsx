@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import css from "../css/login.module.css";
+import css from "../css/form.module.css";
 import TextField from "@mui/material/TextField";
 import {
   FormControl,
@@ -12,10 +12,17 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/system";
 import GoogleButton from 'react-google-button'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { Alert } from "react-bootstrap";
+import {useUserAuthContext} from '../context/UserAuthContet'
+
 const Login = () => {
+
+  const {logIn} = useUserAuthContext()
+
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [error, setError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false); //for the icon in pass field
 
@@ -25,18 +32,26 @@ const Login = () => {
     event.preventDefault();
   };
 
-  const loginSubmit = (e) => {
+  const navigate = useNavigate()
+  const loginSubmit = async(e) => {
     e.preventDefault();
-    console.log("The user Email is:", email, "and Pass is:", pass);
+    setError('')
+    try{
+      await logIn(email, pass)
+      navigate('/home')
+    }catch(err){
+      setError(err.message)
+    }
   };
   return (
     <div className={`${css.wrapper}`}>
       <Box className={`${css.form_wrapper}`}>
+      {error && <Alert variant="danger">{error}</Alert>}
         <form onSubmit={loginSubmit} className={`${css.form}`} >
           <TextField
             id="outlined-basic"
             className="mb-4"
-            type="text"
+            type="email"
             required
             label="Email Address"
             variant="outlined"
@@ -46,13 +61,13 @@ const Login = () => {
             className="mb-4"
            variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
-              Password
+              Password *
             </InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               required
               type={showPassword ? "text" : "password"}
-              label="Password"
+              label="Password *"
               onChange={(e) => setPass(e.target.value)}
               endAdornment={
                 <InputAdornment position="end">
@@ -70,7 +85,7 @@ const Login = () => {
           </FormControl>
           <button className="btn btn-primary">Login</button>
           <hr />
-          <div className="mb-3">
+          <div className={`${css.google_btn} mb-3`}>
             <GoogleButton style={{width: '100%'}} type = "dark"/>
           </div>
           <div className="text-center" >

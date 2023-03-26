@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}   
 .form_wrapper{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 3rem 4rem;
@@ -11,4 +11,11 @@
 .form{
     display: flex;
     flex-direction: column;
+    /* gap: 0.5rem; */
+}
+.google_btn{
+    transition: all 0.3s ease-in-out;
+}
+.google_btn:hover{
+    transform: scale(0.96);
 }
