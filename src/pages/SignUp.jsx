@@ -13,12 +13,11 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/system";
 import GoogleButton from 'react-google-button'
 import {Link, useNavigate} from 'react-router-dom'
-import { Alert } from 'react-bootstrap';
 import {useUserAuthContext} from '../context/UserAuthContet'
 
 const Signup = () => {
 
-  const {signUp, emailVerification, setTimeActive} = useUserAuthContext()
+  const {signUp, emailVerification, setTimeActive, googleSignin} = useUserAuthContext()
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cPass, setCPass] = useState("");
@@ -54,7 +53,6 @@ const Signup = () => {
   const signupSubmit = async(e) => {
     e.preventDefault();
     setError('')
-    try{
       if(validatePassword()) {
         // Create a new user with email and password using firebase
           signUp(email, pass)
@@ -64,16 +62,23 @@ const Signup = () => {
               setTimeActive(true)
               navigate("/verification");
             }).catch((err) => setError(err.message))
-          })
+          }).catch((err) => setError(err.message))
       }
+  };
+
+  const handleGoogleLogin = async(e)=>{
+    e.preventDefault()
+    try{
+      await googleSignin()
+      navigate('/')
     }catch(err){
       setError(err.message)
     }
-  };
+  }
   return (
     <div className={`${css.wrapper}`}>
       <Box className={`${css.form_wrapper}`}>
-      {error && <Alert variant="danger">{error}</Alert>}
+      {error && <p className={`${css.error}`}>{error}</p>}
 
         <form onSubmit={signupSubmit} className={`${css.form}`} >
           <TextField
@@ -137,10 +142,10 @@ const Signup = () => {
               }
             />
           </FormControl>
-          <button className="btn btn-primary">Signup</button>
+          <button className={`${css.form_btn} btn btn-primary`}>SignUp</button>
           <hr />
           <div className={`${css.google_btn} mb-3`}>
-            <GoogleButton label="SignUp with Google" style={{width: '100%'}} type = "dark"/>
+            <GoogleButton onClick={handleGoogleLogin} label="SignUp with Google" style={{width: '100%'}} type = "dark"/>
           </div>
           <div className="text-center" >
             <h6 className="fw-500 fs-6">Already have an account? <br /> <Link to='/login'>Login</Link> here</h6>

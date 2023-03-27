@@ -6,6 +6,8 @@ import {
     sendEmailVerification,
     signOut,
     onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup
 } from 'firebase/auth'
 const UserAuthContext = createContext();
 
@@ -32,6 +34,11 @@ export const UserAuthContextProvider = ({ children }) => {
         return signOut(auth)
     }
 
+    //to signin with google
+    const googleSignin = ()=>{
+        const googleAuthProvider = new GoogleAuthProvider()
+        return signInWithPopup(auth,googleAuthProvider)
+    }
 
     //to notify that a particular user is logged in
     useEffect(()=>{
@@ -46,7 +53,7 @@ export const UserAuthContextProvider = ({ children }) => {
         }
     })
   return (
-    <UserAuthContext.Provider value={{user, signUp, logIn, emailVerification, logOut, timeActive, setTimeActive}}>{children}</UserAuthContext.Provider>
+    <UserAuthContext.Provider value={{user, signUp, logIn, emailVerification, logOut, timeActive, setTimeActive, googleSignin}}>{children}</UserAuthContext.Provider>
   );
 };
 

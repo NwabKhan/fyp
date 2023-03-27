@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import css from "../css/form.module.css";
 import TextField from "@mui/material/TextField";
 import {
@@ -13,12 +13,11 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Box } from "@mui/system";
 import GoogleButton from 'react-google-button'
 import {Link, useNavigate} from 'react-router-dom'
-import { Alert } from "react-bootstrap";
 import {useUserAuthContext} from '../context/UserAuthContet'
 
 const Login = () => {
 
-  const {logIn} = useUserAuthContext()
+  const {logIn, googleSignin} = useUserAuthContext()
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -43,10 +42,20 @@ const Login = () => {
       setError(err.message)
     }
   };
+
+  const handleGoogleLogin = async(e)=>{
+    e.preventDefault()
+    try{
+      await googleSignin()
+      navigate('/')
+    }catch(err){
+      setError(err.message)
+    }
+  }
   return (
     <div className={`${css.wrapper}`}>
       <Box className={`${css.form_wrapper}`}>
-      {error && <Alert variant="danger">{error}</Alert>}
+      {error && <p className={`${css.error}`}>{error}</p>}
         <form onSubmit={loginSubmit} className={`${css.form}`} >
           <TextField
             id="outlined-basic"
@@ -83,10 +92,10 @@ const Login = () => {
               }
             />
           </FormControl>
-          <button className="btn btn-primary">Login</button>
+          <button className={`${css.form_btn} btn btn-primary`}>Login</button>
           <hr />
           <div className={`${css.google_btn} mb-3`}>
-            <GoogleButton style={{width: '100%'}} type = "dark"/>
+            <GoogleButton onClick={handleGoogleLogin} style={{width: '100%'}} type = "dark"/>
           </div>
           <div className="text-center" >
             <h6 className="fw-500 fs-6">Not have any account? <br /> <Link to='/signup'>SignUp</Link> here</h6>

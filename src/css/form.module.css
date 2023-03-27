@@ -13,9 +13,18 @@
     flex-direction: column;
     /* gap: 0.5rem; */
 }
-.google_btn{
+.error{
+    width: 17rem;
+    padding: 0.5rem;
+    text-align: center;
+    color: red;
+    font-weight: 500;
+    font-size: 14px;
+}
+.google_btn, .form_btn{
     transition: all 0.3s ease-in-out;
 }
-.google_btn:hover{
+.google_btn:hover,
+.form_btn:hover{
     transform: scale(0.96);
 }
