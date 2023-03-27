@@ -38,7 +38,7 @@ const Login = () => {
     setError('')
     try{
       await logIn(email, pass)
-      navigate('/home')
+      navigate('/')
     }catch(err){
       setError(err.message)
     }

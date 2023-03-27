@@ -17,14 +17,21 @@ export const UserAuthContextProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth,email, password)
     }
 
+    //to send the verification email to user when he enter his signUp
+    const emailVerification = ()=>{
+        return sendEmailVerification(auth.currentUser)
+    }
+
     //LogIn using emailId and password
     const logIn = (email, password)=>{
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const emailVerification = ()=>{
-        return sendEmailVerification(auth.currentUser)
+    //Logout the user
+    const logOut = ()=>{
+        return signOut(auth)
     }
+
 
     //to notify that a particular user is logged in
     useEffect(()=>{
@@ -39,7 +46,7 @@ export const UserAuthContextProvider = ({ children }) => {
         }
     })
   return (
-    <UserAuthContext.Provider value={{user, signUp, logIn, emailVerification, timeActive, setTimeActive}}>{children}</UserAuthContext.Provider>
+    <UserAuthContext.Provider value={{user, signUp, logIn, emailVerification, logOut, timeActive, setTimeActive}}>{children}</UserAuthContext.Provider>
   );
 };
 

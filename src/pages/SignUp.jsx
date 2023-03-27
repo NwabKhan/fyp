@@ -54,20 +54,21 @@ const Signup = () => {
   const signupSubmit = async(e) => {
     e.preventDefault();
     setError('')
-    if(validatePassword()) {
-      // Create a new user with email and password using firebase
-        signUp(email, pass)
-        .then(() => {
-          emailVerification()
+    try{
+      if(validatePassword()) {
+        // Create a new user with email and password using firebase
+          signUp(email, pass)
           .then(() => {
-            setTimeActive(true)
-            navigate("/verification");
-          }).catch((err) => setError(err.message))
-        })
+            emailVerification()
+            .then(() => {
+              setTimeActive(true)
+              navigate("/verification");
+            }).catch((err) => setError(err.message))
+          })
+      }
+    }catch(err){
+      setError(err.message)
     }
-    setEmail('')
-    setPass('')
-    setCPass('')
   };
   return (
     <div className={`${css.wrapper}`}>

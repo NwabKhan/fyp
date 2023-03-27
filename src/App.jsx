@@ -27,9 +27,9 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route exact path="/" element={<Home />} />
-            </Route>
+            <Route exact path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            {/* <Route exact path="/" element={<PrivateRoute />}>
+            </Route> */}
             <Route path="/verification" element={<VerifyEmail />} />
             {/* <Route path="/*" element={<ErrorPage />} /> */}
           </Route>
