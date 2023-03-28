@@ -9,11 +9,13 @@ import { UserAuthContextProvider } from "./context/UserAuthContet";
 import VerifyEmail from "./helpers/auth_helpers/VerifyEmail";
 import ProtectedRoute from "./helpers/auth_helpers/ProtectedRoute";
 import ErrorPage from './pages/ErrorPage';
+import Header from "./components/header/Header";
 
 const App = () => {
   return (
     <BrowserRouter>
       <UserAuthContextProvider>
+      <Header />
         <Routes>
           <Route exact path="/">
             <Route exact path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />

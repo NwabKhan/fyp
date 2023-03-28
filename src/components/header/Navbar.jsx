@@ -1,13 +1,15 @@
-import React, {useState} from "react";
-import { Box } from '@mui/system';
-import css from '../css/home.module.css'
-import {NavLink} from 'react-router-dom'
+import React, { useState } from "react";
+import { Box } from "@mui/system";
+import css from "../../css/home.module.css";
+import { NavLink } from "react-router-dom";
+import {Close} from '@mui/icons-material/';
+import {Menu} from '@mui/icons-material/';
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <Box>
-      <Box className={`${{toggle} ? css.active : "" }`}>
+      <Box className={toggle ? `${css.active} ` : ""}>
         <ul className={`${css.navbar_lists}`}>
           <li>
             <NavLink
@@ -18,14 +20,14 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          
+
           <li>
             <NavLink
-              to="/products"
+              to="/service"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
             >
-              Products
+              Services
             </NavLink>
           </li>
           <li>
@@ -49,18 +51,18 @@ const Navbar = () => {
         </ul>
 
         {/* for small screens */}
-        {/* <div className="mobile-navbar-btn">
-          <AiOutlineMenu
+        <div className={`${css.mobile_navbar_btn}`}>
+          <Menu
             name="menu-outline"
-            className="mobile-nav-icon"
+            className={`${css.mobile_nav_icon}`}
             onClick={() => setToggle(true)}
           />
-          <AiOutlineClose
+          <Close
             name="close-outline"
-            className="mobile-nav-icon close-outline"
+            className={`${css.mobile_nav_icon} ${css.close_outline}`}
             onClick={() => setToggle(false)}
           />
-        </div> */}
+        </div>
       </Box>
     </Box>
   );

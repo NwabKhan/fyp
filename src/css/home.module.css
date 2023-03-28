@@ -1,13 +1,22 @@
+.header {
+  padding: 0 4.8rem;
+  height: 10rem;
+  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
 .navbar_lists {
   display: flex;
   gap: 4rem;
   align-items: center;
-}
-.navbar_link {
+  list-style: none;
 }
 
 .navbar_link:visited,
-.navbar_link:active {
+.navbar_link:link {
   display: inline-block;
   text-decoration: none;
   font-size: 1.8rem;
@@ -16,7 +25,79 @@
   color: red;
   transition: color 0.3s linear;
 }
+
 .navbar_link:hover,
-.navbar_link:active{
-    color: green
+.navbar_link:active {
+  color: green;
+}
+
+.active {
+  color: blue !important;
+}
+
+.mobile_navbar_btn {
+  display: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.mobile_nav_icon[name="close-outline"] {
+  display: none;
+}
+
+.close_outline {
+  display: none;
+}
+
+/* ################## for small sccreens #####################*/
+
+@media screen and (max-width: 500px) {
+  .mobile_navbar_btn {
+    display: inline-block;
+    z-index: 9999;
+    border: 2xx solid black;
+  }
+  .mobile_nav_icon {
+    font-size: 4.5rem;
+    color: black;
+  }
+  .active .mobile_nav_icon {
+    display: none;
+    font-size: 4.2rem;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: red;
+    z-index: 9999;
+  }
+  .active .close_outline {
+    display: flex;
+  }
+  .navbar_lists {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .active .navbar_lists {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 999;
+    transform-origin: none;
+    transition: all 0.5s linear;
+  }
+  .navbar_link {
+    font-size: 4rem;
+  }
 }
