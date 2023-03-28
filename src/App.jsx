@@ -6,32 +6,24 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { UserAuthContextProvider } from "./context/UserAuthContet";
-import VerifyEmail from "./pages/VerifyEmail";
-import ProtectedRoute from "./pages/ProtectedRoute";
-import PrivateRoute from "./pages/PrivateRoute";
+import VerifyEmail from "./helpers/auth_helpers/VerifyEmail";
+import ProtectedRoute from "./helpers/auth_helpers/ProtectedRoute";
+import ErrorPage from './pages/ErrorPage';
+
 const App = () => {
   return (
     <BrowserRouter>
       <UserAuthContextProvider>
         <Routes>
-          <Route>
-            <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+          <Route exact path="/">
+            <Route exact path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route exact path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            {/* <Route exact path="/" element={<PrivateRoute />}>
-            </Route> */}
-            <Route path="/verification" element={<VerifyEmail />} />
-            {/* <Route path="/*" element={<ErrorPage />} /> */}
+            <Route exact path="/verification" element={<ProtectedRoute><VerifyEmail /></ProtectedRoute>} />
+            <Route path="/*" element={<ErrorPage />} />
           </Route>
         </Routes>
       </UserAuthContextProvider>

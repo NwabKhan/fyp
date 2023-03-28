@@ -1,21 +1,9 @@
-import React from 'react'
-import {useUserAuthContext} from '../context/UserAuthContet'
+import React from "react";
 const Home = () => {
-  const {user, logOut} = useUserAuthContext()
 
-  const handleLogOut = async()=>{
-    try{
-      await logOut()
-    }catch(err){
-
-    }
-  }
   return (
-    <div>
-      <p>Welcome {user && user.email}. </p>
-      <button onClick={handleLogOut} className='btn btn-primary'>LogOut</button>
-    </div>
-  )
-}
+    <h2>Home</h2>
+  );
+};
 
-export default Home
+export default Home;

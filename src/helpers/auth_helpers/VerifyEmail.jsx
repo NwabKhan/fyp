@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useUserAuthContext } from "../context/UserAuthContet";
+import { useUserAuthContext } from "../../context/UserAuthContet";
 import { useNavigate } from "react-router-dom";
+import css from "../../css/form.module.css";
+
 const VerifyEmail = () => {
   const { user, timeActive, setTimeActive, emailVerification } =
     useUserAuthContext();
@@ -18,7 +20,7 @@ const VerifyEmail = () => {
           }
         })
         .catch((err) => {
-          alert(err.message);
+          console.log("Error i VerifyEmail is: ", err.message)
         });
     }, 1000);
   }, [navigate, user]);
@@ -40,27 +42,38 @@ const VerifyEmail = () => {
   const resendEmailVerification = () => {
     emailVerification()
       .then(() => {
-        navigate('/verification')
+        navigate("/verification");
         setTimeActive(true);
       })
       .catch((err) => {
-        alert(err.message);
+        console.log("Error i VerifyEmail is: ", err.message)
       });
   };
 
   return (
-    <div className="center">
-      <div className="verifyEmail">
-        <h1>Verify your Email Address</h1>
+    <div className={`${css.wrapper} text-center`}>
+      <div className={`${css.form_wrapper}`}>
+        <h3>Verify your Email Address</h3>
         <p>
-          <strong>A Verification email has been sent to:</strong>
+          A Verification email has been sent to:
           <br />
-          <span>{user?.email}</span>
+          <strong>{user?.email}</strong>
         </p>
-        <span>Follow the instruction in the email to verify your account</span>
-        <button onClick={resendEmailVerification} disabled={timeActive}>
-          Resend Email {timeActive && time}
-        </button>
+        <p className="">
+          Please follow the instruction in the email to verify your account
+        </p>
+        <div className="d-flex justify-content-evenly">
+          <button className="btn btn-dark" onClick={()=>{
+            navigate('/signup')
+          }}>Go Back</button>
+          <button
+            className="btn btn-dark"
+            onClick={resendEmailVerification}
+            disabled={timeActive}
+          >
+            Resend Email {timeActive && time}
+          </button>
+        </div>
       </div>
     </div>
   );
