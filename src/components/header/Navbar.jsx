@@ -21,9 +21,9 @@ const Navbar = () => {
 
               // the styling of the active link. We can also make the object like this
               //  ? {color: "red", background: "green"}:{ color: "green", background: "red"}
-              style={({ isActive }) => ({
-                color: isActive ? "green" : "red",
-              })}
+              style={({ isActive }) => (
+                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+              )}
             >
               Home
             </NavLink>
@@ -34,9 +34,12 @@ const Navbar = () => {
               to="/service"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              style={({ isActive }) => ({
-                color: isActive ? "green" : "red",
-              })}
+              // style={({ isActive }) => ({
+              //   color: isActive ? "green" : "red",
+              // })}
+              style={({ isActive }) => (
+                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+              )}
             >
               Services
             </NavLink>
@@ -46,9 +49,9 @@ const Navbar = () => {
               to="/contact"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              style={({ isActive }) => ({
-                color: isActive ? "green" : "red",
-              })}
+              style={({ isActive }) => (
+                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+              )}
             >
               Contact
             </NavLink>
@@ -58,9 +61,9 @@ const Navbar = () => {
               to="/about"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              style={({ isActive }) => ({
-                color: isActive ? "green" : "red",
-              })}
+              style={({ isActive }) => (
+                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+              )}
             >
               About
             </NavLink>

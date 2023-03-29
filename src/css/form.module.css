@@ -1,3 +1,7 @@
+:root{
+    --shadow : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px ;
+    --error_color : red ; 
+}
 .wrapper{
     height: 100vh;
     display: flex;
@@ -5,7 +9,7 @@
     align-items: center;
 }   
 .form_wrapper{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: var(--shadow);
     padding: 3rem 4rem;
 }
 .form{
@@ -17,7 +21,7 @@
     width: 17rem;
     padding: 0.5rem;
     text-align: center;
-    color: red;
+    color: var(--error_color);
     font-weight: 500;
     font-size: 14px;
 }

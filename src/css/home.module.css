@@ -1,7 +1,15 @@
+:root{
+  --shadow : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px ;
+  --bg_color : grey ; 
+  --navlink_color : red ; 
+  --navlink_hover_color : green ; 
+  --mobile_nav_icon_color : blue
+}
+
 .header {
   padding: 0 4.8rem;
   height: 10rem;
-  background-color: gray;
+  background-color: var(--bg_color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,18 +30,18 @@
   font-size: 1.8rem;
   font-weight: 500;
   text-transform: uppercase;
-  color: red;
+  color: var(--navlink_color);
   transition: color 0.3s linear;
 }
 
 .navbar_link:hover,
 .navbar_link:active {
-  color: green;
+  color: var(--navlink_hover_color);
 }
 
-.active {
+/* .active {
   color: blue !important;
-}
+} */
 
 .mobile_navbar_btn {
   display: none;
@@ -58,9 +66,9 @@
     z-index: 9999;
     border: 2xx solid black;
   }
-  .mobile_nav_icon {
-    font-size: 4.5rem;
-    color: black;
+  .mobile_nav_icon, .close_outline {
+    font-size: 4.5rem !important;
+    color: var(--mobile_nav_icon_color) !important;
   }
   .active .mobile_nav_icon {
     display: none;
@@ -68,7 +76,7 @@
     position: absolute;
     top: 30%;
     right: 10%;
-    color: red;
+    /* color: var(--navlink_color); */
     z-index: 9999;
   }
   .active .close_outline {
@@ -80,7 +88,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: blue;
+    background-color: var(--bg_color);
     display: flex;
     justify-content: center;
     align-items: center;
