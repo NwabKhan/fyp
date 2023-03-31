@@ -1,6 +1,6 @@
 :root{
-    --shadow : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px ;
-    --error_color : red ; 
+    --shadow : hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px ;
+    --error_color : hsl(0, 100%, 50%) ; 
 }
 .wrapper{
     height: 100vh;

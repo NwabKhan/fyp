@@ -1,111 +1,62 @@
-:root{
-  --shadow : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px ;
-  --bg_color : grey ; 
-  --navlink_color : red ; 
-  --navlink_hover_color : green ; 
-  --mobile_nav_icon_color : blue
-}
-
-.header {
-  padding: 0 4.8rem;
-  height: 10rem;
-  background-color: var(--bg_color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.img_1_container {
   position: relative;
+  height: 80vh;
+}
+.img_1 {
+  position: absolute;
+  max-width: 100%;
+  width: 100vw;
+  height: 80vh;
+  top: 0;
+  left: 0;
 }
 
-.navbar_lists {
+/* positioning text over the images */
+.img_1_content {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  top: 10rem;
+}
+.img_1_content h3 {
+  color: red;
+}
+.img_1_content p {
+  color: white;
+}
+
+.img_2_container {
+  height: 90vh;
+  padding: 4rem;
   display: flex;
-  gap: 4rem;
-  align-items: center;
-  list-style: none;
+  justify-content: space-around;
 }
 
-.navbar_link:visited,
-.navbar_link:link {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--navlink_color);
-  transition: color 0.3s linear;
+.img2_content {
+  margin-right: 2rem;
 }
 
-.navbar_link:hover,
-.navbar_link:active {
-  color: var(--navlink_hover_color);
-}
-
-/* .active {
-  color: blue !important;
-} */
-
-.mobile_navbar_btn {
-  display: none;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-}
-
-.mobile_nav_icon[name="close-outline"] {
-  display: none;
-}
-
-.close_outline {
-  display: none;
+.img_2 {
+  height: 30rem;
+  width: 40rem;
 }
 
 /* ################## for small sccreens #####################*/
 
-@media screen and (max-width: 500px) {
-  .mobile_navbar_btn {
-    display: inline-block;
-    z-index: 9999;
-    border: 2xx solid black;
+@media screen and (max-width: 700px) {
+  .img_1 {
+    max-width: 100%;
+    height: auto;
   }
-  .mobile_nav_icon, .close_outline {
-    font-size: 4.5rem !important;
-    color: var(--mobile_nav_icon_color) !important;
+  .img_1_content {
+    top: 5rem;
   }
-  .active .mobile_nav_icon {
+  .img_1_content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .img_1_content p {
     display: none;
-    font-size: 4.2rem;
-    position: absolute;
-    top: 30%;
-    right: 10%;
-    /* color: var(--navlink_color); */
-    z-index: 9999;
-  }
-  .active .close_outline {
-    display: flex;
-  }
-  .navbar_lists {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--bg_color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .active .navbar_lists {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 999;
-    transform-origin: none;
-    transition: all 0.5s linear;
-  }
-  .navbar_link {
-    font-size: 4rem;
   }
 }

@@ -1,0 +1,106 @@
+:root {
+    --shadow: hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px;
+    --bg_color: hsl(200, 20%, 80%);
+    --navlink_color: hsl(250, 50%, 50%);
+    --navlink_hover_color: hsl(250, 50%, 40%);
+    --mobile_nav_icon_color: hsl(250, 50%, 40%);
+  }
+  
+  .header {
+    padding: 1rem;
+    background-color: var(--bg_color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+  }
+  
+  .navbar_lists {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 0;
+  }
+  
+  .navbar_link:visited,
+  .navbar_link:link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--navlink_color);
+    transition: color 0.3s linear;
+  }
+  
+  .navbar_link:hover,
+  .navbar_link:active {
+    color: var(--navlink_hover_color);
+  }
+  
+  .mobile_navbar_btn {
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .mobile_nav_icon[name="close-outline"] {
+    display: none;
+  }
+  
+  .close_outline {
+    display: none;
+  }
+  
+  /* ################## for small sccreens #####################*/
+  
+  @media screen and (max-width: 700px) {
+    .mobile_navbar_btn {
+      display: flex;
+      z-index: 9999;
+      /* border: 2xx solid black; */
+    }
+    .mobile_nav_icon,
+    .close_outline {
+      font-size: 1.5rem !important;
+      color: var(--mobile_nav_icon_color) !important;
+    }
+    .active .mobile_nav_icon {
+      display: none;
+      font-size: 1.5rem;
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      /* color: var(--navlink_color); */
+      z-index: 9999;
+    }
+    .active .close_outline {
+      display: flex;
+    }
+    .navbar_lists {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: var(--bg_color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-direction: column;
+      visibility: hidden;
+      opacity: 0;
+    }
+  
+    .active .navbar_lists {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 999;
+      transform-origin: none;
+      transition: all 0.5s linear;
+    }
+  }

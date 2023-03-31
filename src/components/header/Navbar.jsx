@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/system";
-import css from "../../css/home.module.css";
+import css from "../../css/header.module.css";
 import { NavLink } from "react-router-dom";
 import { Close } from "@mui/icons-material/";
 import { Menu } from "@mui/icons-material/";
@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <Box>
-      <Box className={toggle ? `${css.active} ` : ""}>
+      <Box className={ toggle ? `${css.active}` : ""}>
         <ul className={`${css.navbar_lists}`}>
           <li>
             <NavLink
@@ -22,7 +22,7 @@ const Navbar = () => {
               // the styling of the active link. We can also make the object like this
               //  ? {color: "red", background: "green"}:{ color: "green", background: "red"}
               style={({ isActive }) => (
-                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
               )}
             >
               Home
@@ -38,7 +38,7 @@ const Navbar = () => {
               //   color: isActive ? "green" : "red",
               // })}
               style={({ isActive }) => (
-                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
               )}
             >
               Services
@@ -50,7 +50,7 @@ const Navbar = () => {
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
               style={({ isActive }) => (
-                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
               )}
             >
               Contact
@@ -62,7 +62,7 @@ const Navbar = () => {
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
               style={({ isActive }) => (
-                isActive ? {color: "green", borderBottom: '2px solid yellow'}:{}
+                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
               )}
             >
               About
@@ -81,7 +81,7 @@ const Navbar = () => {
             name="close-outline"
             className={`${css.mobile_nav_icon} ${css.close_outline}`}
             onClick={() => setToggle(false)}
-          />
+          />  
         </div>
       </Box>
     </Box>
