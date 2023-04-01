@@ -1,6 +1,7 @@
 import React from "react";
 import images from "../../resources";
 import css from "../../css/home.module.css";
+import Signup from "./../../pages/SignUp";
 
 const Hero = () => {
   return (
@@ -21,6 +22,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
+
       <div className={`${css.img_2_container}`}>
         <div className={`${css.img2_content}`}>
           <div>
@@ -73,6 +75,54 @@ const Hero = () => {
             hhhhhhhhhh hhhhhhh hhhhhhj asd asdh asdashd adha sd
           </p>
         </div>
+      </div>
+
+      <div className={css.product_wrapper}>
+        <div>
+          <h3>
+            our main <br /> services
+          </h3>
+          <img
+            className={`${css.arrow}`}
+            src={images.icons.arrow}
+            alt="Move Forward"
+          />
+        </div>
+        <div className={css.products}>
+          <div className={css.product}>
+            <img src={images.icons.product_1} />
+            <h4>Some Heading</h4>
+            <p>
+              Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
+              Signupasd a asdasdjasjd asda sdas dasda sdjasd sd
+            </p>
+          </div>
+          <div className={`${css.product} ${css.middle_product}`}>
+            <img src={images.icons.product_2} />
+            <h4>Some Heading</h4>
+            <p>
+              Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
+              Signupasd a asdasdjasjd asda sdas dasda sdjasd sd Here asbad a
+              asdbas das asdh asdas dashd a sd asd asd asd a Signupasd a
+              asdasdjasjd asda sdas dasda sdjasd sd Here asbad a asdbas das asdh
+              asdas dashd a sd asd asd asd a Signupasd a asdasdjasjd asda sdas
+              dasda sdjasd sd
+            </p>
+          </div>
+          <div className={css.product}>
+            <img src={images.icons.product_3} />
+            <h4>Some Heading</h4>
+            <p>
+              Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
+              Signupasd a asdasdjasjd asda sdas dasda sdjasd sd
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex flex-column align-items-center text-center mt-2">
+        <h3 className="fw-bold text-danger">Sounds Great?! Let’s work together!</h3>
+        <button className={css.contact_btn}>Contact Now</button>
       </div>
     </div>
   );
