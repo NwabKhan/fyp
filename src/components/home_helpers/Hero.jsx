@@ -1,7 +1,6 @@
 import React from "react";
 import images from "../../resources";
 import css from "../../css/home.module.css";
-import Signup from "./../../pages/SignUp";
 
 const Hero = () => {
   return (
