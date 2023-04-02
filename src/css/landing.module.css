@@ -153,13 +153,100 @@ h6 {
 .service_text {
   padding: 1rem;
 }
-.service_link{
-   color: #eb3f57;
-   transition: all 0.4s ease-in-out;
-   text-decoration: none;
+.service_link {
+  color: #eb3f57;
+  transition: all 0.4s ease-in-out;
+  text-decoration: none;
 }
-.service_link:hover{
-   color: red
+.service_link:hover {
+  color: red;
+}
+
+/* fifth screen(conatc page) */
+
+.container {
+  padding: 7.5rem;
+}
+.inner_container {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  height: 90vh;
+  overflow:hidden;
+}
+.contact_wrapper {
+  flex: 2;
+}
+.greeting_text {
+  margin:3rem;
+}
+
+/* .form_container{
+
+} */
+.contact_inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+}
+label {
+  font-size: 12px;
+  font-weight: bold;
+}
+input,
+textarea {
+  width: 25rem;
+  margin: 0 0 1rem 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5fa;
+  /* Inner shadow 2 */
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(170, 170, 204, 0.25),
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #ffffff;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+}
+textarea{
+  height: 8rem;
+}
+input:focus,
+textarea:focus {
+  border: 2px solid #eb3f57;
+}
+
+.contact_img_wrapper {
+  position: relative ;
+  flex: 1;
+}
+.contact_img {
+  height: 100%;
+}
+.contact_img img {
+  width: auto;
+  min-height: 100%;
+  min-width: 100%; 
+  object-fit: contain;
+}
+.contact_img_text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.cursor{
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: all 0.1s ease-in-out;
+}
+.cursor:hover{
+  transform: scale(0.92);
+}
+a{
+  color: white !important
 }
 
 /* ############ for small screen  ###################*/
@@ -198,7 +285,6 @@ h6 {
   .mission_container {
     flex-direction: column;
     padding: 1rem;
-
   }
   .intro_content,
   .mission_content {
@@ -218,7 +304,7 @@ h6 {
     flex-direction: column;
     gap: 1rem;
   }
-  .services_title{
+  .services_title {
     padding: 0 2rem;
   }
   .middle_service {

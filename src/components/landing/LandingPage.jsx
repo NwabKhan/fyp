@@ -2,9 +2,12 @@ import React from "react";
 import images from "../../resources";
 import css from "../../css/landing.module.css";
 import {Link} from "react-router-dom"
+import Contact from "./Contact";
 const LandingPage = () => {
   return (
     <div>
+
+    {/* first section */}
       <div className={`${css.landing_img_container}`}>
         <img
           className={`${css.landing_img}`}
@@ -21,6 +24,7 @@ const LandingPage = () => {
           <button className={css.btn}>Get Started</button>
         </div>
       </div>
+      {/* this text will only show for small screens */}
         <div className={css.small_sceen}>
           <h4>Food Luck</h4>
           <p>
@@ -31,6 +35,8 @@ const LandingPage = () => {
             clear common purpose <br /> to deliver excellence and hid
           </p>
         </div>
+
+    {/* second screen */}
 
       <div className={`${css.intro_container}`}>
         <div className={`${css.intro_content}`}>
@@ -63,6 +69,7 @@ const LandingPage = () => {
         />
       </div>
 
+    {/* third screen */}
       <div className={`${css.mission_container}`}>
         <img
           className={`${css.mission_img}`}
@@ -109,6 +116,7 @@ const LandingPage = () => {
         </div>
       </div>
 
+    {/* fourth screen (our services) */}
       <div className={css.services_wrapper}>
         <div className={css.services_title}>
           <h3>
@@ -167,6 +175,10 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
+    {/* fifth screen (contact us) */}
+    <Contact />
+
     </div>
   );
 };
