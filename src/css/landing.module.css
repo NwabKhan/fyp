@@ -1,16 +1,25 @@
+:root {
+  --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+  --dark_grey: hsl(236, 10%, 30%);
+  --light_red: hsl(352, 81%, 58%);
+  --dark_red: hsl(352, 41%, 38%);
+  --white_color: hsl(0, 0%, 100%);
+  --bg_clr: #f5f5fa ;
+}
+
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: #454654;
+  color: var(--dark_grey);
 }
 h4 {
   letter-spacing: 2px;
-  color: #eb3f57;
+  color: var(--light_red);
   text-transform: uppercase;
   font-size: 2rem;
 }
 h5 {
-  color: #454654;
+  color: var(--dark_grey);
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: capitalize;
@@ -30,7 +39,7 @@ h6 {
 }
 .btn {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(180deg, #eb3f57 0%, #893944 100%);
+  background: linear-gradient(180deg, var(--light_red) 0%, var(--dark_red) 100%);
   box-shadow: 5px 5px 10px rgba(170, 170, 204, 0.25),
     10px 10px 20px rgba(170, 170, 204, 0.5);
   border-radius: 2rem;
@@ -57,7 +66,7 @@ h6 {
   top: 20%;
 }
 .landing_img_content h2 {
-  color: #eb3f57;
+  color: var(--light_red);
   font-style: normal;
   font-weight: 700;
   font-size: 3rem;
@@ -65,7 +74,7 @@ h6 {
   text-transform: uppercase;
 }
 .landing_img_content p {
-  color: white;
+  color: var(--white_color);
 }
 .small_sceen {
   display: none;
@@ -130,7 +139,7 @@ h6 {
 }
 .service {
   flex: 1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow) ;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 0.25rem;
@@ -144,7 +153,7 @@ h6 {
   border-top-left-radius: 1rem;
 
   text-align: center;
-  background-color: #454654;
+  background-color: var(--dark_grey);
   padding: 4rem;
 }
 .service_img_wrapper img {
@@ -154,24 +163,24 @@ h6 {
   padding: 1rem;
 }
 .service_link {
-  color: #eb3f57;
+  color: var(--light_red);
   transition: all 0.4s ease-in-out;
   text-decoration: none;
 }
 .service_link:hover {
-  color: red;
+  color: var(--dark_red);
 }
 
 /* fifth screen(conatc page) */
 
 .container {
-  padding: 7.5rem;
+  padding: 2rem 8rem;
 }
 .inner_container {
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--white_color);
+  box-shadow: var(--shadow) ;
   border-radius: 1rem;
   height: 90vh;
   overflow:hidden;
@@ -183,45 +192,41 @@ h6 {
   margin:3rem;
 }
 
-/* .form_container{
-
-} */
 .contact_inputs {
   display: flex;
   flex-direction: column;
   padding: 0 4rem;
 }
-label {
+.form_container label {
   font-size: 12px;
   font-weight: bold;
 }
-input,
-textarea {
-  width: 25rem;
+.form_container input,
+.form_container textarea {
   margin: 0 0 1rem 1rem;
   padding: 0.5rem 1rem;
-  background-color: #f5f5fa;
+  background-color: var(--bg_clr);
   /* Inner shadow 2 */
   box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(170, 170, 204, 0.25),
-    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #ffffff;
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px var(--white_color);
   border-radius: 1rem;
   border: none;
   outline: none;
 }
-textarea{
+.form_container textarea{
   height: 8rem;
 }
-input:focus,
-textarea:focus {
-  border: 2px solid #eb3f57;
+.form_container input:focus,
+.form_container textarea:focus {
+  border: 2px solid var(--light_red);
 }
 
 .contact_img_wrapper {
   position: relative ;
   flex: 1;
 }
-.contact_img {
+/* .contact_img {
   height: 100%;
 }
 .contact_img img {
@@ -229,24 +234,25 @@ textarea:focus {
   min-height: 100%;
   min-width: 100%; 
   object-fit: contain;
-}
+} */
+/* center text over images */
 .contact_img_text{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--white_color);
 }
-.cursor{
+.contact_img_wrapper .cursor{
   cursor: pointer;
   margin-right: 1rem;
   transition: all 0.1s ease-in-out;
 }
-.cursor:hover{
+.contact_img_wrapper .cursor:hover{
   transform: scale(0.92);
 }
-a{
-  color: white !important
+.contact_img_wrapper a{
+  color: var(--white_color) !important
 }
 
 /* ############ for small screen  ###################*/
@@ -310,4 +316,27 @@ a{
   .middle_service {
     margin: 1rem 0;
   }
+
+  /* 5th screen(Contact)*/
+  .container{
+    padding: 2rem 4rem;
+  }
+  .contact_img_wrapper{
+    display: none;
+  }
+  .inner_container{
+    box-shadow : none ;
+    background-color: var(--bg_clr);
+    height: auto;
+  }
+  .greeting_text{
+    margin: 1rem;
+  }
+  .contact_inputs{
+    padding: 0 2rem;
+  }
+  .form_container input,
+  .form_container textarea {
+    margin: 0 0 1rem 0.5rem;
+  } 
 }

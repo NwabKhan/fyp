@@ -15,7 +15,7 @@ const LandingPage = () => {
           alt="LandingPage Section"
         />
         <div className={`${css.landing_img_content}`}>
-          <h2>Disocver a world of opportunities</h2>
+          <h2 className="p-3">Disocver a world of opportunities</h2>
           <p>
             We empower a diverse IT service-oriented workforce where strong
             individuals are unified by a clear common purpose <br /> to deliver
