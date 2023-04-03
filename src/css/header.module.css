@@ -1,14 +1,7 @@
-:root {
-    --shadow: hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px;
-    --bg_color: hsl(200, 20%, 80%);
-    --navlink_color: hsl(250, 50%, 50%);
-    --navlink_hover_color: hsl(250, 50%, 40%);
-    --mobile_nav_icon_color: hsl(250, 50%, 40%);
-  }
   
   .header {
     padding: 1rem;
-    background-color: var(--bg_color);
+    background-color: var(--navbar_bg);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -85,7 +78,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: var(--bg_color);
+      background-color: var(--navbar_bg);
       display: flex;
       justify-content: center;
       align-items: center;

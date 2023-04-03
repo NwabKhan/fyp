@@ -1,7 +1,4 @@
-:root{
-    --shadow : hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px ;
-    --error_color : hsl(0, 100%, 50%) ; 
-}
+
 .wrapper{
     height: 100vh;
     display: flex;
@@ -21,7 +18,7 @@
     width: 17rem;
     padding: 0.5rem;
     text-align: center;
-    color: var(--error_color);
+    color: var(--light_red);
     font-weight: 500;
     font-size: 14px;
 }

@@ -22,7 +22,7 @@ const Navbar = () => {
               // the styling of the active link. We can also make the object like this
               //  ? {color: "red", background: "green"}:{ color: "green", background: "red"}
               style={({ isActive }) => (
-                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
+                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
               )}
             >
               Home
@@ -38,7 +38,7 @@ const Navbar = () => {
               //   color: isActive ? "green" : "red",
               // })}
               style={({ isActive }) => (
-                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
+                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
               )}
             >
               Services
@@ -50,7 +50,8 @@ const Navbar = () => {
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
               style={({ isActive }) => (
-                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
+                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
+
               )}
             >
               Contact
@@ -62,7 +63,8 @@ const Navbar = () => {
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
               style={({ isActive }) => (
-                isActive ? {color: "hsl(250, 50%, 40%)", borderBottom: '2px solid hsl(0, 0%, 20%)'}:{}
+                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
+
               )}
             >
               About

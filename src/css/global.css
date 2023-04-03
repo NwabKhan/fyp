@@ -1,14 +1,29 @@
+/* from landing page */
+:root {
+  --shadow: 0px 2px 8px 0px hsla(0, 0%, 0%, 0.25);
+  --dark_grey: hsl(236, 10%, 30%);
+  --light_red: hsl(352, 81%, 58%);
+  --dark_red: hsl(352, 41%, 38%);
+  --white_color: hsl(0, 0%, 100%);
+  --body_bg: hsl(240, 33%, 97%) ;
+  --mobile_nav_icon_color: hsl(250, 50%, 20%); 
+  --navbar_bg: var(--light_red) ;
+  --navlink_color: var(--body_bg);
+  --navlink_hover_color: var(--dark_grey);
+  /* --max_width: 500px ; */
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Work Sans", sans-serif;
   }
-
 body {
-    background-color: #F5F5FA;
+    background-color: var(--body_bg) ;
     overflow-x: hidden;
-    scrollbar-color: rgb(98 84 243);
+    /* scrollbar-color: green; */
     scrollbar-width: thin;
   }
 
@@ -16,13 +31,14 @@ body {
     width: 1rem;
   }
   
+  /* scrool bar trak bg color */
   body::-webkit-scrollbar-track {
-     background-color: rgb(98 84 243);  
+     background-color: var(--dark_red);  
   }
   
+  /* scrool bar itself color */
   body::-webkit-scrollbar-thumb {
-   
-      background: #E2EAFC; 
+      background: var(--light_red); 
       border: 5px solid transparent;
       border-radius: 20px;
       background-clip: content-box;

@@ -1,13 +1,12 @@
 import React from "react";
 import images from "../../resources";
 import css from "../../css/landing.module.css";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import Contact from "./Contact";
 const LandingPage = () => {
   return (
-    <div>
-
-    {/* first section */}
+    <div className={css.wrapper}>
+      {/* first section */}
       <div className={`${css.landing_img_container}`}>
         <img
           className={`${css.landing_img}`}
@@ -25,18 +24,18 @@ const LandingPage = () => {
         </div>
       </div>
       {/* this text will only show for small screens */}
-        <div className={css.small_sceen}>
-          <h4>Food Luck</h4>
-          <p>
-            loremas sad aad as We empower a diverse IT service-oriented
-            workforce where strong individuals are unified by a clear common
-            purpose <br /> to deliver excellence and hi We empower a diverse IT
-            service-oriented workforce where strong individuals are unified by a
-            clear common purpose <br /> to deliver excellence and hid
-          </p>
-        </div>
+      <div className={css.small_sceen}>
+        <h4>Food Luck</h4>
+        <p>
+          loremas sad aad as We empower a diverse IT service-oriented workforce
+          where strong individuals are unified by a clear common purpose <br />{" "}
+          to deliver excellence and hi We empower a diverse IT service-oriented
+          workforce where strong individuals are unified by a clear common
+          purpose <br /> to deliver excellence and hid
+        </p>
+      </div>
 
-    {/* second screen */}
+      {/* second screen */}
 
       <div className={`${css.intro_container}`}>
         <div className={`${css.intro_content}`}>
@@ -69,7 +68,7 @@ const LandingPage = () => {
         />
       </div>
 
-    {/* third screen */}
+      {/* third screen */}
       <div className={`${css.mission_container}`}>
         <img
           className={`${css.mission_img}`}
@@ -116,7 +115,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-    {/* fourth screen (our services) */}
+      {/* fourth screen (our services) */}
       <div className={css.services_wrapper}>
         <div className={css.services_title}>
           <h3>
@@ -142,7 +141,6 @@ const LandingPage = () => {
                 asdasdjasjd asda sdas dasda sdjasd sd
               </p>
               <Link className={css.service_link}>Learn More...</Link>
-
             </div>
           </div>
           <div className={`${css.service} ${css.middle_service}`}>
@@ -157,7 +155,6 @@ const LandingPage = () => {
                 sdjasd sd
               </p>
               <Link className={css.service_link}>Learn More...</Link>
-
             </div>
           </div>
           <div className={css.service}>
@@ -176,9 +173,8 @@ const LandingPage = () => {
         </div>
       </div>
 
-    {/* fifth screen (contact us) */}
-    <Contact />
-
+      {/* fifth screen (contact us) */}
+      <Contact />
     </div>
   );
 };

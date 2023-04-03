@@ -1,0 +1,127 @@
+.contact_short {
+  max-width: 60vw;
+  margin: auto;
+  padding: 4rem 8rem;
+  background-color: var(--light_red);
+  border-radius: 1rem;
+  transform: translateY(70%);
+  box-shadow: var(--shadow);
+}
+.shorts {
+  display: flex;
+  justify-content: space-between;
+  color: var(--dark_grey);
+}
+/* for the button with the text of "Get Started" */
+.shorts div:last-child {
+  justify-self: end;
+  align-self: center;
+}
+.hireme_btn {
+  border: none;
+  transition: all 0.4s ease-in-out;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(
+    180deg,
+    var(--light_red) 0%,
+    var(--dark_red) 100%
+  );
+  box-shadow: var(--shadow);
+  border-radius: 2rem;
+  color: var(--white_color);
+}
+.hireme_btn:hover {
+  transform: scale(0.95);
+}
+
+footer {
+  padding: 12rem 0 2rem 0;
+  background-color: var(--dark_grey);
+}
+.footer_top_section {
+  display: flex;
+  padding: 1rem 4rem;
+}
+
+.footer_about,
+.footer_social,
+.footer_contact {
+  flex: 1;
+  padding: 0 1rem;
+  color: var(--white_color);
+}
+.footer_top_section h3 {
+  color: var(--light_red);
+  margin: 0 0 1rem 0 ;
+}
+
+.footer_about {
+  margin-right: 2rem;
+  text-align: center;
+}
+.footer_social_icons {
+  display: flex;
+  gap: 2rem;
+}
+.icons {
+  color: var(--white_color);
+  height: 2rem !important;
+  width: 2rem !important;
+}
+.footer_contact span {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.footer_contact a {
+  color: var(--white_color);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.footer_bottom_section {
+  padding-top: 5rem;
+  color: var(--white_color);
+}
+.footer_bottom_section hr {
+  margin-bottom: 2rem;
+  color: var(--light_red);
+  height: 0.1px;
+}
+.all_rights {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 700px) {
+  .contact_short {
+    max-width: 80vw;
+    margin: 4rem auto;
+    padding: 2rem 1.5rem;
+    transform: translateY(0%);
+    text-align: center;
+  }
+  .shorts div:last-child {
+    justify-self: center;
+  }
+  footer {
+    padding: 4rem 0 4rem 0;
+  }
+  .footer_top_section{
+    flex-direction: column;
+     padding: 1rem 2rem;
+  }
+  .footer_bottom_section {
+    padding-top: 4rem;
+  }
+  .footer_top_section h3{
+    margin: 1.5rem 0 0.5rem 0 ;
+  }
+  .footer_about {
+    margin-right: 0;
+    text-align: start;
+  }
+  .all_rights{
+    flex-direction: column;
+  }
+}
+

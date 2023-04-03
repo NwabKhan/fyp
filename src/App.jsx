@@ -10,6 +10,7 @@ import VerifyEmail from "./helpers/auth_helpers/VerifyEmail";
 import ProtectedRoute from "./helpers/auth_helpers/ProtectedRoute";
 import ErrorPage from './pages/ErrorPage';
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/*" element={<ErrorPage />} />
           </Route>
         </Routes>
+        <Footer />
       </UserAuthContextProvider>
     </BrowserRouter>
   );

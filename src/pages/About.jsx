@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Hero from '../components/home_helpers/Hero'
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <Hero />
+    </div>
   )
 }
 
