@@ -10,7 +10,6 @@
   --navbar_bg: var(--light_red) ;
   --navlink_color: var(--body_bg);
   --navlink_hover_color: var(--dark_grey);
-  /* --max_width: 500px ; */
 }
 
 
@@ -23,7 +22,7 @@
 body {
     background-color: var(--body_bg) ;
     overflow-x: hidden;
-    /* scrollbar-color: green; */
+    padding: 0 !important;
     scrollbar-width: thin;
   }
 
