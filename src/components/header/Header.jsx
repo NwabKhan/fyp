@@ -13,11 +13,12 @@ import {
   Typography,
 } from "@mui/material";
 const Header = () => {
-  const { userName, userEmail, userDP, logOut } = useUserAuthContext();
+  const { userName, userEmail, userDP, logOut, user } = useUserAuthContext();
 
+  const [activeUser, setActiveUser] = useState(true) //used for the profile based on user is active or not
   useEffect(() => {
-    console.log("Data receiving in Header:", userName, userEmail, userDP);
-  }, [userName, userEmail, userDP]);
+    user ? setActiveUser(false) : setActiveUser(true)
+  }, [user]);
 
   const navigate = useNavigate()
   const settings = ["Profile", "Logout"];
@@ -35,7 +36,7 @@ const Header = () => {
     const clickedTab = e.target.innerHTML ;
     switch(clickedTab){
       case "Profile" :
-        navigate("/home")
+        navigate("/about")
         break
       case "Logout" :
         logOut();
@@ -48,10 +49,12 @@ const Header = () => {
   return (
     <div className={`${css.header}`} style={{ position: 'fixed', top: 0, left: 0, right: 0 }}>
       <Box>
-        <Tooltip title="Open settings">
-          <IconButton onClick={handleOpenUserMenu}>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        <Tooltip title="Users">
+          <span>
+          <IconButton onClick={handleOpenUserMenu} disabled = {activeUser}>
+            <Avatar alt={userName} src={userDP} />
           </IconButton>
+          </span>
         </Tooltip>
         <Menu
           sx={{ mt: "45px" }}
