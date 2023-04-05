@@ -13,9 +13,26 @@ import {
   Typography,
 } from "@mui/material";
 const Header = () => {
-  const { userName, userEmail, userDP, logOut, user } = useUserAuthContext();
+  const { userName, userDP, logOut, user } = useUserAuthContext();
+
+  const [isScrolled, setIsScrolled] = useState(false); //use to change bg f header on scroll
 
   const [activeUser, setActiveUser] = useState(true) //used for the profile based on user is active or not
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   useEffect(() => {
     user ? setActiveUser(false) : setActiveUser(true)
   }, [user]);
@@ -47,7 +64,7 @@ const Header = () => {
     setAnchorElUser(null);
   }
   return (
-    <div className={`${css.header}`} style={{ position: 'fixed', top: 0, left: 0, right: 0 }}>
+    <div className={`${css.header} ${isScrolled ? css.scrolled : ''}`}>
       <Box>
         <Tooltip title="Users">
           <span>
