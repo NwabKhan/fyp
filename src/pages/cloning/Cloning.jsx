@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import css from './cloning.module.css'
-import Section1 from '../services/Section1'
+import Section2 from '../services/Section2'
 const Cloning = () => {
+  useEffect(() => {
+    window.scrollTo(0, 500);
+
+  }, []);
   return (
     <div>
-      <Section1 />
+      <Section2 title="Voice Cloning" />
     </div>
   )
 }

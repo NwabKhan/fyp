@@ -1,11 +1,13 @@
-import React from 'react'
-import css from './toxic.module.css'
-import Section1 from '../services/Section1'
+import React, { useEffect } from 'react'
+import Section2 from '../services/Section2'
 
 const Toxic = () => {
+  useEffect(() => {
+    window.scrollTo(0, 500);
+  }, []);
   return (
     <div>
-      <Section1 />
+      <Section2 title="Toxic Content Detection" />
     </div>
   )
 }

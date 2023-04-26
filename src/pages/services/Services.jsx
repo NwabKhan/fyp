@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import css from "../landing/landing.module.css";
 import { Link } from "react-router-dom";
 import images from '../../resources/index'
 import Section1 from "./Section1";
 const Services = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className={css.wrapper}>
       <Section1 />
-      <div className={css.services_wrapper}>
+      <div  style={{marginTop: '6rem'}} className={css.services_wrapper}>
         <div className={css.services_title}>
           <h3>
             The Services <br /> we Provide

@@ -1,6 +1,7 @@
 import React from "react";
 import images from "../../resources";
 import css from "../../css/home.module.css";
+import Section4 from "./section4/Section4";
 
 const Hero = () => {
   return (
@@ -12,12 +13,12 @@ const Hero = () => {
           alt="Hero Section"
         />
         <div className={`${css.img_1_content}`}>
-          <h3>Our Main headings will go there </h3>
+          <h3>About Us</h3>
           <p>
-            loasdbas asdbhasbd as dasd asda s asd asdh as da sdada sd
-            hasdsdnasja as ajsf <br /> afh
-            skjdhfjfjhsdfsjdsdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj asd
-            asdh asdashd adha sd
+            We are a team of passionate developers committed to developing
+            innovative <br /> solutions to detect and combat fake content, toxic
+            content and voice cloning. <br /> Our aim is to build a safer online
+            environment for all users.
           </p>
         </div>
       </div>
@@ -35,11 +36,14 @@ const Hero = () => {
               alt="Move Forward"
             />
           </div>
-          <h4>Good to go and here you will find something intresting</h4>
+          <h4>FTVc Founders</h4>
           <p>
-            loasdbas asdbhasbd as dasd asda s asd asdh as da sdada sd
-            hasdsdnasja as ajsf afh skjdhfjfjhsdfsjdsdhhhh hhhhh hhhhhhhhhh hhh
-            hhhhhhhhhh hhhhhhh hhhhhhj asd asdh asdashd adha sd
+            Our team comprises of skilled professionals who are dedicated to
+            bringing innovative solutions to the table. We have a diverse set of
+            experts who possess expertise in different domains, enabling us to
+            provide comprehensive solutions to complex problems. Together, we
+            strive to deliver outstanding results while maintaining the highest
+            level of integrity and transparency in our operations.
           </p>
         </div>
         <img
@@ -49,32 +53,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className={`${css.img_2_container}`}>
-        <img
-          className={`${css.img_2}`}
-          src={images.home.img_3}
-          alt="Fake COntent Detection"
-        />
-        <div className={`${css.img2_content}`}>
-          <div>
-            <h3>
-              We are
-              <br /> Tech
-            </h3>
-            <img
-              className={`${css.arrow}`}
-              src={images.icons.arrow}
-              alt="Move Forward"
-            />
-          </div>
-          <h4>Good to go and here you will find something intresting</h4>
-          <p>
-            loasdbas asdbhasbd as dasd asda s asd asdh as da sdada sd
-            hasdsdnasja as ajsf afh skjdhfjfjhsdfsjdsdhhhh hhhhh hhhhhhhhhh hhh
-            hhhhhhhhhh hhhhhhh hhhhhhj asd asdh asdashd adha sd
-          </p>
-        </div>
-      </div>
+      <Section4 />
 
       <div className={css.product_wrapper}>
         <div>
@@ -89,7 +68,7 @@ const Hero = () => {
         </div>
         <div className={css.products}>
           <div className={css.product}>
-            <img src={images.icons.product_1} />
+            <img src={images.icons.product_1} alt="Product" />
             <h4>Some Heading</h4>
             <p>
               Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
@@ -97,7 +76,7 @@ const Hero = () => {
             </p>
           </div>
           <div className={`${css.product} ${css.middle_product}`}>
-            <img src={images.icons.product_4} />
+            <img src={images.icons.product_4} alt="Product"  />
             <h4>Some Heading</h4>
             <p>
               Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
@@ -109,7 +88,7 @@ const Hero = () => {
             </p>
           </div>
           <div className={css.product}>
-            <img src={images.icons.product_3} />
+            <img src={images.icons.product_3} alt="Product"  />
             <h4>Some Heading</h4>
             <p>
               Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
@@ -120,7 +99,9 @@ const Hero = () => {
       </div>
 
       <div className="d-flex flex-column align-items-center text-center mt-2">
-        <h3 className="fw-bold text-danger">Sounds Great?! Let’s work together!</h3>
+        <h3 className="fw-bold text-danger">
+          Sounds Great?! Let’s work together!
+        </h3>
         <button className={css.contact_btn}>Contact Now</button>
       </div>
     </div>

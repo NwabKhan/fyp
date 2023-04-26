@@ -1,12 +1,14 @@
-import React from 'react'
-import css from './fake.module.css'
-import Section1 from '../services/Section1'
+import React, { useEffect } from "react";
+import Section2 from "../services/Section2";
 const Fake = () => {
+  useEffect(() => {
+    window.scrollTo(0, 500);
+  }, []);
   return (
     <div>
-      <Section1 />
+      <Section2 title="Fake Content Detection" />
     </div>
-  )
-}
+  );
+};
 
-export default Fake
+export default Fake;

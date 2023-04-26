@@ -77,21 +77,20 @@
   .mobile_nav_icon,
   .close_outline {
     font-size: 1.5rem !important;
-    color: var(--mobile_nav_icon_color);
+    color: var(--dark_red);
     transition: all 0.3s ease-in-out;
   }
   .scrolled_navbar_btn .mobile_nav_icon,
   .scrolled_navbar_btn .close_outline {
-    color: var(--white_color);
+    color: var(--dark_grey);
   }
 
   .active .mobile_nav_icon {
     display: none;
     font-size: 1.5rem;
     position: absolute;
-    top: 10%;
-    right: 5%;
-    /* color: var(--navlink_color); */
+    top: 30%;
+    right: 7%;
     z-index: 9999;
   }
   .active .close_outline {
@@ -103,11 +102,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--navbar_bg);
+    background-color: var(--body_bg);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
     flex-direction: column;
     visibility: hidden;
     opacity: 0;
@@ -116,9 +115,18 @@
   .active .navbar_lists {
     visibility: visible;
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(20%);
     z-index: 999;
     transform-origin: none;
     transition: all 0.5s linear;
   }
+
+  .home_link{
+    margin-top: 5rem;
+  }
+
+  .navbar_link:visited,
+.navbar_link:link {
+  color: var(--dark_grey);
+}
 }

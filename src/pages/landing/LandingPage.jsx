@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import images from "../../resources";
 import css from "./landing.module.css";
 import { Link } from "react-router-dom";
 import Contact from "./Contact";
 const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className={css.wrapper}>
       {/* first section */}
@@ -27,13 +30,13 @@ const LandingPage = () => {
       </div>
       {/* this text will only show for small screens */}
       <div className={css.small_sceen}>
-        <h4>Have to Change this</h4>
+        <h4> Advanced Urdu Language Technology</h4>
         <p>
-          loremas sad aad as We empower a diverse IT service-oriented workforce
-          where strong individuals are unified by a clear common purpose <br />{" "}
-          to deliver excellence and hi We empower a diverse IT service-oriented
-          workforce where strong individuals are unified by a clear common
-          purpose <br /> to deliver excellence and hid
+        Detect toxic content, identify fake content, and clone voices in
+            Urdu with our powerful NLP toolkit. 
+            Transform your Urdu communication today <br /> {" "}
+            Our Urdu Language Toolkit incorporates cutting-edge technology to provide you with advanced features allowing you to communicate more effectively and safely in Urdu.
+          purpose to deliver excellence and hid
         </p>
       </div>
 

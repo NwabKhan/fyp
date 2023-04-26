@@ -29,7 +29,7 @@ const Navbar = ({ isScrolled }) => {
             <NavLink
               to="/"
               onClick={() => setToggle(false)}
-              className={`${css.navbar_link}`}
+              className={`${css.navbar_link} ${css.home_link}`}
               style={({ isActive }) => (isActive ? style : {})}
             >
               Home

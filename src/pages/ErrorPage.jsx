@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useUserAuthContext } from "../context/UserAuthContet";
 import Hero from '../components/home_helpers/Hero';
 import LandingPage from './landing/LandingPage';
 
 const ErrorPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { user, logOut } = useUserAuthContext();
 
   const handleLogOut = async () => {

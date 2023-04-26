@@ -53,6 +53,7 @@
 .landing_img_container {
   position: relative;
   height: 80vh;
+  margin-bottom: 4rem;
 }
 .landing_img {
   position: absolute;
