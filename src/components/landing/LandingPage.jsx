@@ -14,11 +14,11 @@ const LandingPage = () => {
           alt="LandingPage Section"
         />
         <div className={`${css.landing_img_content}`}>
-          <h2 className="p-3">Disocver a world of opportunities</h2>
+          <h2 className="p-3">Advanced NLP for Urdu language</h2>
           <p>
-            We empower a diverse IT service-oriented workforce where strong
-            individuals are unified by a clear common purpose <br /> to deliver
-            excellence and high level of customer satisfaction.
+            Detect toxic content, identify fake content, and clone voices in
+            Urdu with our powerful NLP toolkit. <br />
+            Transform your Urdu communication today
           </p>
           <button className={css.btn}>Get Started</button>
         </div>
@@ -49,16 +49,18 @@ const LandingPage = () => {
               alt="Move Forward"
             />
           </div>
-          <h4>Technology investments as a differentiator</h4>
+          <h4>Transforming Urdu Communication with NLP</h4>
           <p>
-            No forced partnership technology here. We focus on the right
-            solution to drive our clients’ business forward and employ a
-            technology-agnostic approach for all needed stages of the activity
-            cycle, allowing access to current, robust, and advanced solutions.
-            Paramount to this is ensuring the security and compliant use of all
-            information. In the end, it’s not just technology; we ensure our
-            methodologies, staff, industry knowledge, and governance align with
-            the technology to drive the right client results.
+            At our company, we're passionate about using technology to improve
+            the way people communicate in Urdu. Our mission is to empower Urdu
+            language users with advanced NLP technology and make Urdu
+            communication more efficient and effective. <br /> Our team is made
+            up of language and technology experts who are committed to providing
+            the best Urdu language toolkit on the market. We're dedicated to
+            delivering the most advanced NLP features and tools, while
+            maintaining the highest standards of quality and user experience.
+            Try it now and see the difference it can make for your Urdu language
+            communication.
           </p>
         </div>
         <img
@@ -92,10 +94,9 @@ const LandingPage = () => {
               <div className={css.mission_text}>
                 <h6>Our Mission & Vision </h6>
                 <p>
-                  As experienced professionals in the field of software
-                  development, user experience, and marketing performance, we
-                  are aware of the hard work, dedication, and overall diligence
-                  required to prosper in modern-day business.
+                  Our mission is to transform Urdu communication through
+                  advanced technology, while our vision is to become a leading
+                  provider of language solutions for Urdu speakers worldwide.
                 </p>
               </div>
             </div>
@@ -104,10 +105,11 @@ const LandingPage = () => {
               <div className={css.mission_text}>
                 <h6> Our Approach </h6>
                 <p>
-                  As a result, we offer our clients with the development of CRM
-                  cloud systems, bespoke website development and design, project
-                  and R&D management, custom development, and system
-                  integration.
+                  We approach Urdu language processing with a rigorous,
+                  research-driven methodology that allows us to continuously
+                  innovate and improve our toolkit, ensuring it meets the needs
+                  of our users and stays ahead of the curve in language
+                  technology.
                 </p>
               </div>
             </div>
@@ -130,42 +132,42 @@ const LandingPage = () => {
         <div className={css.services}>
           <div className={css.service}>
             <div className={css.service_img_wrapper}>
-              <img src={images.icons.product_1} />
+              <img src={images.icons.product_1} alt="Produt" />
             </div>
             <div className={css.service_text}>
               <h5>Fake Content Detection</h5>
               <p>
-                Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
-                Signupasd a asdasdjasjd asda sdas dasda sdjasd sd Here asbad a
-                asdbas das asdh asdas dashd a sd asd asd asd a Signupasd a
-                asdasdjasjd asda sdas dasda sdjasd sd
+                Our AI-powered system analyzes various factors such as the authenticity of sources, language patterns, and other indicators to flag any suspicious content. This helps prevent the spread of false information and promotes online integrity.
               </p>
               <Link className={css.service_link}>Learn More...</Link>
             </div>
           </div>
           <div className={`${css.service} ${css.middle_service}`}>
             <div className={css.service_img_wrapper}>
-              <img src={images.icons.product_2} />
+              <img src={images.icons.product_2} alt="Produt" />
             </div>
             <div className={css.service_text}>
               <h5>Toxic Content Detection</h5>
               <p>
-                Here asbad ada sd ajsd asdj a as as aa asdbas das asdh asdas
-                dashd a sd asd asd asd a Signupasd a asdasdjasjd asda sdas dasda
-                sdjasd sd
+                Our system uses natural language processing (NLP) techniques to
+                analyze text and identify hate speech, harassment, and other
+                forms of toxic communication, creating a safer online
+                environment.
               </p>
               <Link className={css.service_link}>Learn More...</Link>
             </div>
           </div>
           <div className={css.service}>
             <div className={css.service_img_wrapper}>
-              <img src={images.icons.product_3} />
+              <img src={images.icons.product_3} alt="Produt" />
             </div>
             <div className={css.service_text}>
               <h5>Voice Cloning</h5>
               <p>
-                Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a
-                Signupasd a asdasdjasjd asda sdas dasda sdjasd sd
+                Our state-of-the-art voice cloning technology allows for the
+                creation of highly realistic synthetic voices in Urdu. This
+                technology can be used for applications such as dubbing,
+                audiobooks, and virtual assistants, among others.
               </p>
               <Link className={css.service_link}>Learn More...</Link>
             </div>

@@ -12,6 +12,7 @@ import goal_2 from './icons/goal_2.png'
 import product_1 from './icons/product_1.png'
 import product_2 from './icons/product_2.png'
 import product_3 from './icons/product_3.png'
+import logo1 from './icons/logo1.svg'
 const images = {
     home : {
         img_1,//1-3 are for home page
@@ -23,6 +24,7 @@ const images = {
         img_7,
     },
     icons: {
+        logo1,
         arrow, //these 4 for home page
         product_1,
         product_2,

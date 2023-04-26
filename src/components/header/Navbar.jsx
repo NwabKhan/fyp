@@ -4,26 +4,33 @@ import css from "../../css/header.module.css";
 import { NavLink } from "react-router-dom";
 import { Close } from "@mui/icons-material/";
 import { Menu } from "@mui/icons-material/";
-const Navbar = () => {
+const Navbar = ({ isScrolled }) => {
   //Its is for the mobile screen. It remain false untill
   //we click on the "Menu" icon(show only under 500px)
   const [toggle, setToggle] = useState(false);
 
+  let style;
+  if (isScrolled) {
+    style = {
+      color: "red",
+      borderBottom: "2px solid red",
+    };
+  } else {
+    style = {
+      color: "#454654",
+      borderBottom: "2px solid #454654",
+    };
+  }
   return (
     <Box>
-      <Box className={ toggle ? `${css.active}` : ""}>
-        <ul className={`${css.navbar_lists}`}>
+      <Box className={toggle ? `${css.active}` : ""}>
+        <ul className={`${css.navbar_lists} ${isScrolled ? css.scrolled_navbar_lists : "" }`}>
           <li>
             <NavLink
               to="/"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-
-              // the styling of the active link. We can also make the object like this
-              //  ? {color: "red", background: "green"}:{ color: "green", background: "red"}
-              style={({ isActive }) => (
-                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
-              )}
+              style={({ isActive }) => (isActive ? style : {})}
             >
               Home
             </NavLink>
@@ -34,12 +41,7 @@ const Navbar = () => {
               to="/service"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              // style={({ isActive }) => ({
-              //   color: isActive ? "green" : "red",
-              // })}
-              style={({ isActive }) => (
-                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
-              )}
+              style={({ isActive }) => (isActive ? style : {})}
             >
               Services
             </NavLink>
@@ -49,10 +51,7 @@ const Navbar = () => {
               to="/contact"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              style={({ isActive }) => (
-                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
-
-              )}
+              style={({ isActive }) => (isActive ? style : {})}
             >
               Contact
             </NavLink>
@@ -62,10 +61,7 @@ const Navbar = () => {
               to="/about"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
-              style={({ isActive }) => (
-                isActive ? {color: "var(--dark_grey)", borderBottom: '2px solid var(--dark_red)'}:{}
-
-              )}
+              style={({ isActive }) => (isActive ? style : {})}
             >
               About
             </NavLink>
@@ -73,7 +69,7 @@ const Navbar = () => {
         </ul>
 
         {/* for small screens */}
-        <div className={`${css.mobile_navbar_btn}`}>
+        <div className={`${css.mobile_navbar_btn} ${isScrolled ? css.scrolled_navbar_btn : ""}`}>
           <Menu
             name="menu-outline"
             className={`${css.mobile_nav_icon}`}
@@ -83,7 +79,7 @@ const Navbar = () => {
             name="close-outline"
             className={`${css.mobile_nav_icon} ${css.close_outline}`}
             onClick={() => setToggle(false)}
-          />  
+          />
         </div>
       </Box>
     </Box>

@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import css from "../../css/header.module.css";
 import { useUserAuthContext } from "../../context/UserAuthContet";
+import images from '../../resources/index'
 import {
   Avatar,
   Box,
@@ -17,29 +18,29 @@ const Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false); //use to change bg f header on scroll
 
-  const [activeUser, setActiveUser] = useState(true) //used for the profile based on user is active or not
-  
+  const [activeUser, setActiveUser] = useState(true); //used for the profile based on user is active or not
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 0) {
+      if (scrollTop > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   useEffect(() => {
-    user ? setActiveUser(false) : setActiveUser(true)
+    user ? setActiveUser(false) : setActiveUser(true);
   }, [user]);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const settings = ["Profile", "Logout"];
-  
+
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -49,28 +50,28 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleSettingsClick = (e)=>{
-    const clickedTab = e.target.innerHTML ;
-    switch(clickedTab){
-      case "Profile" :
-        navigate("/about")
-        break
-      case "Logout" :
+  const handleSettingsClick = (e) => {
+    const clickedTab = e.target.innerHTML;
+    switch (clickedTab) {
+      case "Profile":
+        navigate("/about");
+        break;
+      case "Logout":
         logOut();
-        break
+        break;
       default:
-        console.log("Defalut goes here")
+        console.log("Defalut goes here");
     }
     setAnchorElUser(null);
-  }
+  };
   return (
-    <div className={`${css.header} ${isScrolled ? css.scrolled : ''}`}>
+    <div className={`${css.header} ${isScrolled ? css.scrolled : ""}`}>
       <Box>
         <Tooltip title="Users">
           <span>
-          <IconButton onClick={handleOpenUserMenu} disabled = {activeUser}>
-            <Avatar alt={userName} src={userDP} />
-          </IconButton>
+            <IconButton onClick={handleOpenUserMenu} disabled={activeUser}>
+              <Avatar alt={userName} src={userDP} />
+            </IconButton>
           </span>
         </Tooltip>
         <Menu
@@ -90,13 +91,14 @@ const Header = () => {
           onClose={handleCloseUserMenu}
         >
           {settings.map((setting) => (
-            <MenuItem key={setting} onClick={(e)=>handleSettingsClick(e)}>
+            <MenuItem key={setting} onClick={(e) => handleSettingsClick(e)}>
               <Typography>{setting}</Typography>
             </MenuItem>
           ))}
         </Menu>
       </Box>
-      <Navbar />
+      <img style={{width: '200px', height: 'auto', cursor: 'pointer', padding: '3rem', color: 'white !important'}} src={images.icons.logo1} alt="LPOS" />
+      <Navbar isScrolled = {isScrolled} />
     </div>
   );
 };

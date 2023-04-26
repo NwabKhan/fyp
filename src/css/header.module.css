@@ -1,111 +1,124 @@
-  
-  .header {
-    /* padding: 1rem; */
-    height: 4rem;
+.header {
+  /* padding: 1rem; */
+  height: 4rem;
+  background-color: var(--navbar_bg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 1s ease-in-out;
+}
+.scrolled {
+  background-color: var(--body_bg);
+}
+
+.scrolled_navbar_lists .navbar_link:visited,
+.scrolled_navbar_lists .navbar_link:link {
+  color: red ;
+}
+
+.scrolled_navbar_lists .navbar_link:hover,
+.scrolled_navbar_lists .navbar_link:active {
+  color: var(--navlink_hover_color);
+}
+
+.navbar_lists {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar_link:visited,
+.navbar_link:link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--navlink_color);
+  transition: color 0.3s linear;
+}
+
+.navbar_link:hover,
+.navbar_link:active {
+  color: var(--navlink_hover_color);
+}
+
+.mobile_navbar_btn {
+  display: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.mobile_nav_icon[name="close-outline"] {
+  display: none;
+}
+
+.close_outline {
+  display: none;
+}
+
+/* ################## for small sccreens #####################*/
+
+@media screen and (max-width: 700px) {
+  .mobile_navbar_btn {
+    display: flex;
+    z-index: 9999;
+  }
+  .mobile_nav_icon,
+  .close_outline {
+    font-size: 1.5rem !important;
+    color: var(--mobile_nav_icon_color);
+    transition: all 0.3s ease-in-out;
+  }
+  .scrolled_navbar_btn .mobile_nav_icon,
+  .scrolled_navbar_btn .close_outline {
+    color: var(--white_color);
+  }
+
+  .active .mobile_nav_icon {
+    display: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    /* color: var(--navlink_color); */
+    z-index: 9999;
+  }
+  .active .close_outline {
+    display: flex;
+  }
+  .navbar_lists {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: var(--navbar_bg);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    box-shadow: var(--shadow);
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    right: 0 ;
+    gap: 2.5rem;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .active .navbar_lists {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
     z-index: 999;
-    transition: all 1s ease-in-out;
+    transform-origin: none;
+    transition: all 0.5s linear;
   }
-  .scrolled {
-    background-color: #000;
-  }
-  
-  
-  .navbar_lists {
-    display: flex;
-    gap: 4rem;
-    align-items: center;
-    list-style: none;
-    margin-bottom: 0;
-  }
-  
-  .navbar_link:visited,
-  .navbar_link:link {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--navlink_color);
-    transition: color 0.3s linear;
-  }
-  
-  .navbar_link:hover,
-  .navbar_link:active {
-    color: var(--navlink_hover_color);
-  }
-  
-  .mobile_navbar_btn {
-    display: none;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .mobile_nav_icon[name="close-outline"] {
-    display: none;
-  }
-  
-  .close_outline {
-    display: none;
-  }
-  
-  /* ################## for small sccreens #####################*/
-  
-  @media screen and (max-width: 700px) {
-    .mobile_navbar_btn {
-      display: flex;
-      z-index: 9999;
-      /* border: 2xx solid black; */
-    }
-    .mobile_nav_icon,
-    .close_outline {
-      font-size: 1.5rem !important;
-      color: var(--mobile_nav_icon_color) !important;
-    }
-    .active .mobile_nav_icon {
-      display: none;
-      font-size: 1.5rem;
-      position: absolute;
-      top: 10%;
-      right: 5%;
-      /* color: var(--navlink_color); */
-      z-index: 9999;
-    }
-    .active .close_outline {
-      display: flex;
-    }
-    .navbar_lists {
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: var(--navbar_bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-      flex-direction: column;
-      visibility: hidden;
-      opacity: 0;
-    }
-  
-    .active .navbar_lists {
-      visibility: visible;
-      opacity: 1;
-      transform: translateX(0);
-      z-index: 999;
-      transform-origin: none;
-      transition: all 0.5s linear;
-    }
-  }
+}
