@@ -28,13 +28,27 @@
 .arrow:hover {
   transform: scale(0.95);
 }
-.btn {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(180deg, var(--light_red) 0%, var(--dark_red) 100%);
-  box-shadow: 5px 5px 10px rgba(170, 170, 204, 0.25),
-    10px 10px 20px rgba(170, 170, 204, 0.5);
-  border-radius: 2rem;
+
+.start_btn {
+  padding: 0.65rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.375rem;
+  line-height: 1.75;
+  color: var(--light_red);
+  border-color: rgba(235, 61, 84, 0.15);
+  background-color: rgba(235, 61, 84, 0.15);
+  border: 2px solid transparent;
 }
+
+.start_btn:hover {
+  background-color: rgba(235, 61, 84, 1.0);
+  color: var(--white_color);
+} 
 
 .landing_img_container {
   position: relative;
@@ -246,6 +260,14 @@
   color: var(--white_color)
 }
 
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(180deg, var(--light_red) 0%, var(--dark_red) 100%);
+  box-shadow: 5px 5px 10px rgba(170, 170, 204, 0.25),
+    10px 10px 20px rgba(170, 170, 204, 0.5);
+  border-radius: 2rem;
+}
+
 /* ############ for small screen  ###################*/
 
 @media screen and (max-width: 700px) {
@@ -266,7 +288,7 @@
     line-height: 2.5rem;
   }
   .landing_img_content p,
-  .landing_img_content .btn {
+  .landing_img_content .start_btn {
     display: none;
   }
   .small_sceen {
@@ -331,3 +353,44 @@
     margin: 0 0 1rem 0.5rem;
   } 
 }
+
+
+
+
+/* <div className={css.header_btn}>
+              <NavLink>
+                <button>Open Positions</button>
+              </NavLink>
+              <NavLink>
+                <button className={css.meet}>Meet Out Team</button>
+              </NavLink>
+            </div>
+
+
+            .left button {
+                padding: 0.65rem 1.75rem;
+                font-size: 1rem;
+                font-weight: 500;
+                border: 2px solid transparent;
+                box-shadow: none;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                border-radius: 0.375rem;
+                line-height: 1.75;
+                color: white;
+                background-color: #175cff;
+                border: 2px solid transparent;
+                margin-top: 1.5rem;
+              }
+              
+              .left .meet {
+                color: #175cff;
+                background-color: rgba(23, 92, 255, 0.15);
+                border-color: rgba(23, 92, 255, 0.15);
+                margin-left: 1rem;
+              }
+              
+              .left button:hover {
+                background-color: #0044e3;
+                color: white;
+              } */  

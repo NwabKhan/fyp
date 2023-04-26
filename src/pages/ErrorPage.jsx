@@ -1,7 +1,7 @@
 import React from 'react'
 import { useUserAuthContext } from "../context/UserAuthContet";
 import Hero from '../components/home_helpers/Hero';
-import LandingPage from '../components/landing/LandingPage';
+import LandingPage from './landing/LandingPage';
 
 const ErrorPage = () => {
   const { user, logOut } = useUserAuthContext();
@@ -16,7 +16,7 @@ const ErrorPage = () => {
       {/* <h2>Welcome {user && user.email}.</h2>
       <button onClick={handleLogOut} className='btn btn-primary'>LogOut</button> */}
       {/* <Hero /> */}
-      <LandingPage />
+      <h2>Error is HEre</h2>
     </div>
   )
 }

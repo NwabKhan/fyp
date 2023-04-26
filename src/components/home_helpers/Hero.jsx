@@ -97,7 +97,7 @@ const Hero = () => {
             </p>
           </div>
           <div className={`${css.product} ${css.middle_product}`}>
-            <img src={images.icons.product_2} />
+            <img src={images.icons.product_4} />
             <h4>Some Heading</h4>
             <p>
               Here asbad a asdbas das asdh asdas dashd a sd asd asd asd a

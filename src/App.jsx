@@ -11,42 +11,60 @@ import ProtectedRoute from "./helpers/auth_helpers/ProtectedRoute";
 import ErrorPage from "./pages/ErrorPage";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import LandingPage from "./pages/landing/LandingPage";
+import Services from "./pages/services/Services";
+import Cloning from './pages/cloning/Cloning';
+import Toxic from './pages/toxic/Toxic';
+import Fake from './pages/fake/Fake';
 
 const App = () => {
   return (
     <BrowserRouter>
       <UserAuthContextProvider>
         <Header />
-        <div style={{marginTop: '4rem'}}>
+        <div style={{ marginTop: "4rem" }}>
           <Routes>
             <Route exact path="/" style={{ marginTop: "20px" }}>
-              <Route
-                exact
-                path="/about"
-                element={
-                  <ProtectedRoute>
-                    <About />
-                  </ProtectedRoute>
-                }
-              />
-              <Route exact path="/home" element={<Home />} />
-              <Route
-                exact
-                path="/contact"
-                element={
-                  <ProtectedRoute>
-                    <Contact />
-                  </ProtectedRoute>
-                }
-              />
+              <Route exact path="/" element={<LandingPage />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+
               <Route
                 exact
-                path="/"
+                path="/services"
                 element={
                   <ProtectedRoute>
-                    <Home />
+                    <Services />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                exact
+                path="/services/fake"
+                element={
+                  <ProtectedRoute>
+                    <Fake />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/services/toxic"
+                element={
+                  <ProtectedRoute>
+                    <Toxic />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/services/cloning"
+                element={
+                  <ProtectedRoute>
+                    <Cloning />
                   </ProtectedRoute>
                 }
               />
@@ -59,6 +77,7 @@ const App = () => {
                   </ProtectedRoute>
                 }
               />
+
               <Route path="/*" element={<ErrorPage />} />
             </Route>
           </Routes>

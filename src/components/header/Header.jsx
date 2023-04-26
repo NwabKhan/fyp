@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
-import css from "../../css/header.module.css";
+import css from "./header.module.css";
 import { useUserAuthContext } from "../../context/UserAuthContet";
 import images from '../../resources/index'
 import {
@@ -21,6 +21,7 @@ const Header = () => {
   const [activeUser, setActiveUser] = useState(true); //used for the profile based on user is active or not
 
   useEffect(() => {
+
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 50) {
@@ -28,14 +29,17 @@ const Header = () => {
       } else {
         setIsScrolled(false);
       }
+
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, []);
   useEffect(() => {
     user ? setActiveUser(false) : setActiveUser(true);
+    
   }, [user]);
 
   const navigate = useNavigate();

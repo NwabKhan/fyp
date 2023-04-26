@@ -1,5 +1,5 @@
 import React from "react";
-import css from "../../css/landing.module.css";
+import css from "./landing.module.css";
 import images from "../../resources";
 import {
   CallOutlined,

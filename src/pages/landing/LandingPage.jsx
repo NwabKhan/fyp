@@ -1,6 +1,6 @@
 import React from "react";
 import images from "../../resources";
-import css from "../../css/landing.module.css";
+import css from "./landing.module.css";
 import { Link } from "react-router-dom";
 import Contact from "./Contact";
 const LandingPage = () => {
@@ -20,12 +20,14 @@ const LandingPage = () => {
             Urdu with our powerful NLP toolkit. <br />
             Transform your Urdu communication today
           </p>
-          <button className={css.btn}>Get Started</button>
+          <Link to='/services'>
+                <button className={css.start_btn}>Get Started</button>
+          </Link>
         </div>
       </div>
       {/* this text will only show for small screens */}
       <div className={css.small_sceen}>
-        <h4>Food Luck</h4>
+        <h4>Have to Change this</h4>
         <p>
           loremas sad aad as We empower a diverse IT service-oriented workforce
           where strong individuals are unified by a clear common purpose <br />{" "}
@@ -139,7 +141,7 @@ const LandingPage = () => {
               <p>
                 Our AI-powered system analyzes various factors such as the authenticity of sources, language patterns, and other indicators to flag any suspicious content. This helps prevent the spread of false information and promotes online integrity.
               </p>
-              <Link className={css.service_link}>Learn More...</Link>
+              <Link to='/services/fake' className={css.service_link}>Try Now</Link>
             </div>
           </div>
           <div className={`${css.service} ${css.middle_service}`}>
@@ -154,7 +156,7 @@ const LandingPage = () => {
                 forms of toxic communication, creating a safer online
                 environment.
               </p>
-              <Link className={css.service_link}>Learn More...</Link>
+              <Link to='/services/toxic' className={css.service_link}>Try Now</Link>
             </div>
           </div>
           <div className={css.service}>
@@ -169,7 +171,7 @@ const LandingPage = () => {
                 technology can be used for applications such as dubbing,
                 audiobooks, and virtual assistants, among others.
               </p>
-              <Link className={css.service_link}>Learn More...</Link>
+              <Link to='/services/cloning' className={css.service_link}>Try Now</Link>
             </div>
           </div>
         </div>

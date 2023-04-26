@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/system";
-import css from "../../css/header.module.css";
+import css from "./header.module.css";
 import { NavLink } from "react-router-dom";
 import { Close } from "@mui/icons-material/";
 import { Menu } from "@mui/icons-material/";
@@ -38,7 +38,7 @@ const Navbar = ({ isScrolled }) => {
 
           <li>
             <NavLink
-              to="/service"
+              to="/services"
               onClick={() => setToggle(false)}
               className={`${css.navbar_link}`}
               style={({ isActive }) => (isActive ? style : {})}

@@ -1,105 +1,122 @@
-import React from "react";
-import css from "../../css/footer.module.css";
-import { NavLink } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Link, NavLink } from "react-router-dom";
+import css from "./footer.module.css";
+import resources from '../../resources/index'
+import { Star } from "@mui/icons-material";
+import { Facebook, Instagram, GitHub, Twitter } from "@mui/icons-material";
 
-import {
-  Facebook,
-  LinkedIn,
-  YouTube,
-  Instagram,
-  CallOutlined,
-} from "@mui/icons-material/";
+
 const Footer = () => {
-  return (
-    <div className={css.wrapper}>
-      <section className={css.contact_short}>
-        <div className={css.shorts}>
-          <div>
-            <h4>Ready to get started?</h4>
-            <h5>Talk to us today</h5>
-          </div>
 
-          <div>
-            {/* btn classes are extra , no need for these */}
-            <NavLink to="/">
-              <button className={css.hireme_btn}>Get Started</button>
+  return (
+    <div className={`${css.wrapper}`}>
+      <div className={css.top_part}>
+
+        <div className={css.first}>
+
+          <img src={resources.icons.logo1} alt="LOGO" /> 
+          <p>
+            Our latest news, articles, and resources, we will sent to your inbox
+            weekly.
+          </p>
+          <form className={css.subscribe}>
+            <input type="email" required placeholder="Enter you Email" />
+            <button>Subscribe</button>
+          </form>
+          <h4>10/10 Overall rating</h4>
+          <div className={css.stars}>
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+          </div>
+        </div>
+
+        <div className={css.second}>
+          <h3>Primary Pages</h3>
+          <div className={`${css.link_div}`}>
+            <NavLink to="/" className={css.link}>
+              Home
+            </NavLink>
+            <NavLink to="/About" className={css.link}>
+              About Us
+            </NavLink>
+            <NavLink to="/Services" className={css.link}>
+              Services
+            </NavLink>
+            <NavLink to="/Carrer" className={css.link}>
+              Carrer
+            </NavLink>
+            <NavLink to="/Integrations" className={css.link}>
+              Integrations
+            </NavLink>
+            <NavLink to="/Integration Single" className={css.link}>
+              Integration Single
             </NavLink>
           </div>
         </div>
-      </section>
-
-      <footer>
-        <div className={css.footer_top_section}>
-          <div className={css.footer_about}>
-            <h3>The Urdu Language Toolkit</h3>
-            <p>
-              Lorem ipsum dolor, sit amet asdasd consectetur adipisicing elit.{" "}
-            </p>
+        <div className={css.second}>
+          <h3>Pages</h3>
+          <div className={`${css.link_div}`}>
+            <NavLink to="/Pricing" className={css.link}>
+              Pricing
+            </NavLink>
+            <NavLink to="/News" className={css.link}>
+              News
+            </NavLink>
+            <NavLink to="/NewsDetails" className={css.link}>
+              News Details
+            </NavLink>
+            <NavLink to="/Contact" className={css.link}>
+              Contact
+            </NavLink>
+            <NavLink to="/CareerSingle" className={css.link}>
+              Career Single
+            </NavLink>
+            <NavLink to="/ServiceSingle" className={css.link}>
+              Service Single
+            </NavLink>
           </div>
-
-          <div className={css.footer_social}>
-            <h3>Follow Us</h3>
-            <div className={css.footer_social_icons}>
-              <div>
-                <a
-                  href=""
-                  // target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkedIn className={css.icons} />
-                </a>
-              </div>
-              <div>
-                <a
-                  href=""
-                  // target="_blank"
-                  rel="noreferrer"
-                >
-                  <Facebook className={css.icons} />
-                </a>
-              </div>
-              <div>
-                <a
-                  href=""
-                  // target="_blank"
-                  rel="noreferrer"
-                >
-                  <YouTube className={css.icons} />
-                </a>
-              </div>
-              <div>
-                <a
-                  href=""
-                  // target="_blank"
-                  rel="noreferrer"
-                >
-                  <Instagram className={css.icons} />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className={css.footer_contact}>
-            <h3>Call Us</h3>
-            <a href="tel: +92 311 6689885">
-              {" "}
-              <CallOutlined />
-            </a>{" "}
-            <span>+92 311 6689885</span>
+        </div>
+        <div className={css.second}>
+          <h3>Template</h3>
+          <div className={`${css.link_div}`}>
+            <NavLink to="/Contact" className={css.link}>
+              Contact
+            </NavLink>
+            <NavLink to="/Support" className={css.link}>
+              Support
+            </NavLink>
+            <NavLink to="/SupportSingle" className={css.link}>
+              Support Single
+            </NavLink>
+            <NavLink to="/OurTeam" className={css.link}>
+              Our Team
+            </NavLink>
+            <NavLink to="/UserLogin" className={css.link}>
+              User Login
+            </NavLink>
+            <NavLink to="/CareerSingle" className={css.link}>
+              Career   Single
+            </NavLink>
           </div>
         </div>
 
-        <div className={css.footer_bottom_section}>
-          <hr />
-          <div className={css.all_rights}>
-            <p>@{new Date().getFullYear()} Discountify. All Rights Reserved</p>
-            <div>
-              <p>PRIVACY POLICY</p>
-              <p>TERMS & CONDITIONS</p>
-            </div>
-          </div>
+      </div>
+      <hr className={css.hr} />
+      <div className={css.bottom_part}>
+        <p>
+          @{new Date().getFullYear()} FTVc Rights Reserved. Designed By{" "}
+          <Link className={css.link}>M.Junad</Link>
+        </p>
+        <div className={css.social_icons}>
+          <Facebook className={css.icon} />
+          <Instagram className={css.icon}  />
+          <Twitter className={css.icon}  />
+          <GitHub className={css.icon}  />
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
