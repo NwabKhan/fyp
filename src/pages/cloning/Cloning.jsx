@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import css from './cloning.module.css'
+// import css from './cloning.module.css'
 import Section2 from '../services/Section2'
 const Cloning = () => {
   useEffect(() => {

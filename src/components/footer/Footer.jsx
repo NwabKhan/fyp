@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import css from "./footer.module.css";
 import resources from '../../resources/index'

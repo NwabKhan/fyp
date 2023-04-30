@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css'
 
 import App from './App';
-import {UserAuthContextProvider} from './context/UserAuthContet'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

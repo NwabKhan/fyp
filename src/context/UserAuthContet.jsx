@@ -44,8 +44,8 @@ export const UserAuthContextProvider = ({ children }) => {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider)
     .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
         // console.log("Google Autg Provider credential:",credential, "and token is:", token )
         // after signing u storing user info
         var user = result.user;

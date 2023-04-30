@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useUserAuthContext } from "../context/UserAuthContet";
-import Hero from '../components/home_helpers/Hero';
-import LandingPage from './landing/LandingPage';
+// import Hero from '../components/home_helpers/Hero';
+// import LandingPage from './landing/LandingPage';
 
 const ErrorPage = () => {
 

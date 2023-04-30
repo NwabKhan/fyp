@@ -57,7 +57,7 @@ const Contact = () => {
 
         <div className={css.contact_img_wrapper}>
           <div className={css.contact_img}>
-            <img src={images.home.img_7} />
+            <img src={images.home.img_7} alt="Contact" />
           </div>
           <div className={css.contact_img_text}>
             <h2 className="fw-bold">Contact Us</h2>

@@ -1,8 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import css from "./services.module.css";
 import Section1 from "./Section1";
+// import MusicPlayerSlider from "./VoiceOutput";
 
-const Section2 = ({title}) => {
+const Section2 = ({ title }) => {
+
+  const urduRegex = /^[\u0600-\u06FF\s]+$/;
+  const [inputValue, setInputValue] = useState('');
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (urduRegex.test(value)) {
+      setInputValue(value);
+    } else {
+      alert('Please enter only Urdu characters!');
+    }
+  }
+
+  // const handleKeyPress = (e) => {
+  //   const charCode = e.which || e.keyCode;
+  //   // Check if the pressed key is an English character
+  //   if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+  //     e.preventDefault();
+  //     alert("Please type in Urdu characters only.");
+  //   }
+  // };
+
   return (
     <div>
       <Section1 />
@@ -16,6 +38,8 @@ const Section2 = ({title}) => {
               id="input-text"
               rows="6"
               cols="50"
+              onChange={handleInputChange}
+              value={inputValue}
             />
             <br />
             <button type="submit">Submit</button>
@@ -28,6 +52,15 @@ const Section2 = ({title}) => {
             <br />
             <button type="submit">Submit</button>
           </form>
+        </div>
+
+        <div>
+          <h3>Result:</h3>
+          {/* <p style={{fontSize: '1.25rem', textAlign: 'center' , color: 'white', padding: '1rem 2rem', backgroundColor: 'hsl(352, 81%, 58%)', borderRadius: '1rem'}}>آپ کا دیا ہوا متن جعلی ہے۔</p> */}
+
+          {/* <h3>Generated Cloned Voice Clip :</h3> */}
+
+          {/* <MusicPlayerSlider /> */}
         </div>
       </div>
     </div>
