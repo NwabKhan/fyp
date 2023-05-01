@@ -10,7 +10,7 @@ import {
   YouTube,
   Instagram,
 } from "@mui/icons-material/";
-const Contact = () => {
+const LandingContact = () => {
   return (
     <div className={css.container}>
       <div className={css.inner_container}>
@@ -97,4 +97,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default LandingContact;

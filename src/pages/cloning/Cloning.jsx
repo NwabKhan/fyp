@@ -8,7 +8,7 @@ const Cloning = () => {
   }, []);
   return (
     <div>
-      <Section2 title="Voice Cloning" />
+      <Section2 title="Voice Cloning" cloning="true" />
     </div>
   )
 }

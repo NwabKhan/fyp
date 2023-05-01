@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import images from "../../resources";
 import css from "./landing.module.css";
 import { Link } from "react-router-dom";
-import Contact from "./Contact";
+import LandingContact from "./LandingContact";
 const LandingPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -180,8 +180,8 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* fifth screen (contact us) */}
-      <Contact />
+      {/* fifth screen (LandingContact us) */}
+      <LandingContact />
     </div>
   );
 };
