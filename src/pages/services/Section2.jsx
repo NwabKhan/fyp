@@ -5,12 +5,14 @@ import MusicPlayerSlider from "./VoiceOutput";
 import axios from "axios";
 import { KeyboardBackspace } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-const Section2 = ({ title, cloning }) => {
+const Section2 = ({ title, cloning, service }) => {
   const urduRegex = /^[\u0600-\u06FF\s]+$/;
 
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const [result, setResult] = useState("")
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -27,6 +29,61 @@ const Section2 = ({ title, cloning }) => {
   };
 
   console.log("first", cloning)
+
+  const submitText = ()=>{
+
+    let link;
+    if(service == "fake")
+      link = "http://localhost:3000/predict/faketext/" 
+    else if(service == "toxic")
+      link = "http://localhost:3000/predict/toxictext/" 
+
+    console.log("Submitting")
+    axios.post(link, {
+      text: inputValue
+    })
+    .then((res)=>{
+      console.log(res)
+      if(service == "fake")
+        setResult(res.data ? "Sentence is real" : "Sentence is fake")
+      else if(service == "toxic")
+        setResult("Sentence is " + res.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+      setResult("Some Error Occured")
+    })
+  }
+
+
+  const submitVoice = ()=>{
+
+    let link;
+    if(service == "fake")
+      link = "http://localhost:3000/predict/fakevoice/" 
+    else if(service == "toxic")
+      link = "http://localhost:3000/predict/toxicvoice/" 
+
+    console.log("Submitting")
+    let formData = new FormData()
+    formData.append("file", selectedFile)
+    axios.post(link, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    })
+    .then((res)=>{
+      console.log(res)
+      if(service == "fake")
+        setResult(res.data ? "Sentence is real" : "Sentence is fake")
+      else if(service == "toxic")
+        setResult("Sentence is " + res.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+      setResult("Some Error Occured")
+    })
+  }
 
   return (
     <div>
@@ -50,7 +107,7 @@ const Section2 = ({ title, cloning }) => {
               required
             />
             <br />
-            <button type="submit">Submit</button>
+            <button onClick={submitText} type="button">Submit</button>
           </form>
           {/* {result && (
             <p>
@@ -60,7 +117,7 @@ const Section2 = ({ title, cloning }) => {
         </div>
         <div className={css.audio_input}>
           <h3 style={{textAlign: 'center', marginBottom: '1rem', fontSize: '1.5rem'}}>OR</h3>
-          <h3>Upload Voice Clip:</h3>
+          <h3>Upload Voice Clip (in .wav format):</h3>
           <form>
             <input
               required
@@ -70,7 +127,7 @@ const Section2 = ({ title, cloning }) => {
               onChange={handleFileSelect}
             />
             <br />
-            <button type="submit">Submit</button>
+            <button onClick={submitVoice} type="button">Submit</button>
           </form>
         </div>
 
@@ -87,7 +144,8 @@ const Section2 = ({ title, cloning }) => {
                 borderRadius: "1rem",
               }}
             >
-              آپ کا دیا ہوا متن جعلی ہے۔
+              {/* آپ کا دیا ہوا متن جعلی ہے۔ */}
+              {result}
             </p>
           </div>
         ) : (

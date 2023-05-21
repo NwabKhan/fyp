@@ -7,7 +7,7 @@ const Fake = () => {
 
   return (
     <div>
-      <Section2 title="Fake Content Detection" />
+      <Section2 title="Fake Content Detection" service={"fake"} />
     </div>
   );
 };

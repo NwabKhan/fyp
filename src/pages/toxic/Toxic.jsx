@@ -7,7 +7,7 @@ const Toxic = () => {
   }, []);
   return (
     <div>
-      <Section2 title="Toxic Content Detection" />
+      <Section2 title="Toxic Content Detection" service={"toxic"} />
     </div>
   )
 }
