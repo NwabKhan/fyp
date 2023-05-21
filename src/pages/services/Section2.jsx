@@ -33,9 +33,9 @@ const Section2 = ({ title, cloning, service }) => {
   const submitText = ()=>{
 
     let link;
-    if(service == "fake")
+    if(service === "fake")
       link = "http://localhost:3000/predict/faketext/" 
-    else if(service == "toxic")
+    else if(service === "toxic")
       link = "http://localhost:3000/predict/toxictext/" 
 
     console.log("Submitting")
@@ -44,9 +44,9 @@ const Section2 = ({ title, cloning, service }) => {
     })
     .then((res)=>{
       console.log(res)
-      if(service == "fake")
+      if(service === "fake")
         setResult(res.data ? "Sentence is real" : "Sentence is fake")
-      else if(service == "toxic")
+      else if(service === "toxic")
         setResult("Sentence is " + res.data)
     })
     .catch((err)=>{
@@ -59,9 +59,9 @@ const Section2 = ({ title, cloning, service }) => {
   const submitVoice = ()=>{
 
     let link;
-    if(service == "fake")
+    if(service === "fake")
       link = "http://localhost:3000/predict/fakevoice/" 
-    else if(service == "toxic")
+    else if(service === "toxic")
       link = "http://localhost:3000/predict/toxicvoice/" 
 
     console.log("Submitting")
@@ -74,9 +74,9 @@ const Section2 = ({ title, cloning, service }) => {
     })
     .then((res)=>{
       console.log(res)
-      if(service == "fake")
+      if(service === "fake")
         setResult(res.data ? "Sentence is real" : "Sentence is fake")
-      else if(service == "toxic")
+      else if(service === "toxic")
         setResult("Sentence is " + res.data)
     })
     .catch((err)=>{

@@ -23,7 +23,7 @@ const Section4 = () => {
     {
       image: resources.home.team_4,
       name: "Hafiz Irtaza",
-      title: "Heavy Developer",
+      title: "Backend Developer",
     },
   ];
   return (
