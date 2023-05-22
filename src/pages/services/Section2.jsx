@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import css from "./services.module.css";
 import Section1 from "./Section1";
 import MusicPlayerSlider from "./VoiceOutput";
@@ -12,7 +12,16 @@ const Section2 = ({ title, cloning, service }) => {
   const [error, setError] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const [result, setResult] = useState("")
+  const [result, setResult] = useState("");
+
+  //used for Loader. showLoader is to hard code the loader
+  //for a fixed time periods. after that, it
+  //will automatically disapper. either we received res or not
+  const [isLoading, setIsLoading] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+
+  //To scool the page down when loading complete
+  const resultContainerRef = useRef(null);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -28,62 +37,97 @@ const Section2 = ({ title, cloning, service }) => {
     setSelectedFile(event.target.files[0]);
   };
 
-  console.log("first", cloning)
+  const submitText = () => {
+    if (inputValue === "") {
+      setError(true);
+    } else {
+      setIsLoading(true);
+      setShowLoader(true);
+      setResult(""); // Reset the result
+      let link;
+      if (service === "fake") link = "http://localhost:3000/predict/faketext/";
+      else if (service === "toxic")
+        link = "http://localhost:3000/predict/toxictext/";
 
-  const submitText = ()=>{
+      console.log("Submitting");
+      axios
+        .post(link, {
+          text: inputValue,
+        })
+        .then((res) => {
+          console.log(res);
+          // Show loader for 4 seconds
+          setTimeout(() => {
+            if (service === "fake")
+              setResult(res.data ? "Sentence is real" : "Sentence is fake");
+            else if (service === "toxic") setResult("Sentence is " + res.data);
+          }, 4000);
+        })
+        .catch((err) => {
+          console.log(err);
+          // Show loader for 4 seconds
+          setTimeout(() => {
+            setResult("Some Error Occurred");
+          }, 4000);
+        })
+        .finally(() => {
+          setIsLoading(false); // Disable loading state once the request is complete
+          setTimeout(() => {
+            setShowLoader(false);
+            resultContainerRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "center", // Scroll to the center of the result container
+            });
+          }, 4000);
+        });
+    }
+  };
 
+  const submitVoice = () => {
+    setIsLoading(true);
+    setShowLoader(true);
+    setResult(""); // Reset the result
     let link;
-    if(service === "fake")
-      link = "http://localhost:3000/predict/faketext/" 
-    else if(service === "toxic")
-      link = "http://localhost:3000/predict/toxictext/" 
+    if (service === "fake") link = "http://localhost:3000/predict/fakevoice/";
+    else if (service === "toxic")
+      link = "http://localhost:3000/predict/toxicvoice/";
 
-    console.log("Submitting")
-    axios.post(link, {
-      text: inputValue
-    })
-    .then((res)=>{
-      console.log(res)
-      if(service === "fake")
-        setResult(res.data ? "Sentence is real" : "Sentence is fake")
-      else if(service === "toxic")
-        setResult("Sentence is " + res.data)
-    })
-    .catch((err)=>{
-      console.log(err)
-      setResult("Some Error Occured")
-    })
-  }
-
-
-  const submitVoice = ()=>{
-
-    let link;
-    if(service === "fake")
-      link = "http://localhost:3000/predict/fakevoice/" 
-    else if(service === "toxic")
-      link = "http://localhost:3000/predict/toxicvoice/" 
-
-    console.log("Submitting")
-    let formData = new FormData()
-    formData.append("file", selectedFile)
-    axios.post(link, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    })
-    .then((res)=>{
-      console.log(res)
-      if(service === "fake")
-        setResult(res.data ? "Sentence is real" : "Sentence is fake")
-      else if(service === "toxic")
-        setResult("Sentence is " + res.data)
-    })
-    .catch((err)=>{
-      console.log(err)
-      setResult("Some Error Occured")
-    })
-  }
+    console.log("Submitting");
+    let formData = new FormData();
+    formData.append("file", selectedFile);
+    axios
+      .post(link, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        // Show loader for 4 seconds
+        setTimeout(() => {
+          if (service === "fake")
+            setResult(res.data ? "Sentence is real" : "Sentence is fake");
+          else if (service === "toxic") setResult("Sentence is " + res.data);
+        }, 4000);
+      })
+      .catch((err) => {
+        console.log(err);
+        // Show loader for 4 seconds
+        setTimeout(() => {
+          setResult("Some Error Occurred");
+        }, 4000);
+      })
+      .finally(() => {
+        setIsLoading(false); // Disable loading state once the request is complete
+        setTimeout(() => {
+          setShowLoader(false);
+          resultContainerRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "center", // Scroll to the start of the result container
+          });
+        }, 4000);
+      });
+  };
 
   return (
     <div>
@@ -104,19 +148,23 @@ const Section2 = ({ title, cloning, service }) => {
               cols="50"
               onChange={handleInputChange}
               value={inputValue}
-              required
             />
             <br />
-            <button onClick={submitText} type="button">Submit</button>
+            <button onClick={submitText} type="button">
+              Submit
+            </button>
           </form>
-          {/* {result && (
-            <p>
-              Prediction: <strong>{result}</strong>
-            </p>
-          )} */}
         </div>
         <div className={css.audio_input}>
-          <h3 style={{textAlign: 'center', marginBottom: '1rem', fontSize: '1.5rem'}}>OR</h3>
+          <h3
+            style={{
+              textAlign: "center",
+              marginBottom: "1rem",
+              fontSize: "1.5rem",
+            }}
+          >
+            OR
+          </h3>
           <h3>Upload Voice Clip (in .wav format):</h3>
           <form>
             <input
@@ -127,12 +175,19 @@ const Section2 = ({ title, cloning, service }) => {
               onChange={handleFileSelect}
             />
             <br />
-            <button onClick={submitVoice} type="button">Submit</button>
+            <button onClick={submitVoice} type="button">
+              Submit
+            </button>
           </form>
         </div>
 
-        { !cloning ? (
-          <div>
+        {showLoader && (
+          <div className={css.overlay}>
+            <div className={css.custom_loader}></div>
+          </div>
+        )}
+        {!cloning || !showLoader ? (
+          <div ref={resultContainerRef}>
             <h3>Result:</h3>
             <p
               style={{
@@ -144,7 +199,6 @@ const Section2 = ({ title, cloning, service }) => {
                 borderRadius: "1rem",
               }}
             >
-              {/* آپ کا دیا ہوا متن جعلی ہے۔ */}
               {result}
             </p>
           </div>
